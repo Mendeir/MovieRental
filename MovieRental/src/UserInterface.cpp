@@ -57,6 +57,7 @@ void UserInterface::customerMaintenance ()
 	cout << "          CUSTOMER MAINTENANCE          " << '\n';
 	cout << "========================================" << '\n';
 	customerMaintenanceSubMenu ();
+	processCustomerMaintenance (getUserCommand ());
 
 }
 
@@ -64,7 +65,7 @@ void UserInterface::customerMaintenanceSubMenu ()
 {
 	cout << "[1] Add New Customer" << '\n';
 	cout << "[2] Show Customer Details" << '\n';
-	cout << "[3] List of Videos Rentted by a Customer" << '\n';
+	cout << "[3] List of Videos Rented by a Customer" << "\n\n";
 }
 
 
@@ -77,6 +78,7 @@ void UserInterface::processCommandMainMenu (int command)
 	{
 		case 1:
 			int test;
+
 			cout << "New Video" << '\n';
 			cin >> test;
 			break;
@@ -102,7 +104,7 @@ void UserInterface::processCommandMainMenu (int command)
 			break;
 
 		case 7:
-			cout << "Customer Maintenance" << '\n';
+			customerMaintenance ();
 			break;
 
 		case 8:
@@ -115,3 +117,28 @@ void UserInterface::processCommandMainMenu (int command)
 	}
 }
 
+void UserInterface::processCustomerMaintenance (int command)
+{
+	clear ();
+
+	switch (command)
+	{
+		case 1:
+			int test;
+			cout << "Add New Customer" << '\n';
+			cin >> test;
+
+			break;
+
+		case 2:
+			cout << "Show Customer Details" << '\n';
+			break;
+
+		case 3:
+			cout << "List of Videos Rented by a Customer" << '\n';
+			break;
+
+		default:
+			cout << "Invalid Command" << '\n';
+	}
+}

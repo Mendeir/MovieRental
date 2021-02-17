@@ -22,6 +22,7 @@ class UserInterface
 
 		//Processing Methods
 		void processCommandMainMenu (int givenCommand);
+		void processCustomerMaintenance (int givenCommand);
 
 };
 
