@@ -36,6 +36,13 @@ void UserInterface::mainMenu ()
 	clear ();
 }
 
+void UserInterface::customerMaintenanceSubMenu ()
+{
+	cout << "[1] Add New Customer" << '\n';
+	cout << "[2] Show Customer Details" << '\n';
+	cout << "[3] List of Videos Rentted by a Customer" << '\n';
+}
+
 int UserInterface::getUserCommand () 
 {
 	int command = 0;
