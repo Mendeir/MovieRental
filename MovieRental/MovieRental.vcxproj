@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="VideoStore.cpp" />
+    <ClCompile Include="src\UserInterface.cpp" />
+    <ClCompile Include="src\VideoStore.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VideoStore.h" />
+    <ClInclude Include="src\UserInterface.h" />
+    <ClInclude Include="src\VideoStore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
