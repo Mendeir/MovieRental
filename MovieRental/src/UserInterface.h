@@ -4,8 +4,8 @@ class UserInterface
 	public:
 		void start ();
 		void displayMenuCommands();
-		void getUserCommand ();
-		void proccessUserCommand ();
+		int getUserCommand ();
+		void proccessUserCommand (int givenCommand);
 
 };
 

@@ -5,8 +5,8 @@ using namespace std;
 
 void UserInterface::start () 
 {
-
 	displayMenuCommands ();
+	
 }
 
 void UserInterface::displayMenuCommands () 
@@ -24,7 +24,11 @@ void UserInterface::displayMenuCommands ()
 	cout << "[8] Exit Program" << '\n';
 }
 
-void UserInterface::getUserCommand () 
+int UserInterface::getUserCommand () 
 {
+	int command = 0;
 
+	//Prompt User
+	cout << "Enter command: ";
+	cin >> command;
 }
