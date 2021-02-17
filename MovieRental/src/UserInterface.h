@@ -6,6 +6,5 @@ class UserInterface
 		void displayMainMenuCommands ();
 		int getUserCommand ();
 		void processCommandMainMenu (int givenCommand);
-
 };
 

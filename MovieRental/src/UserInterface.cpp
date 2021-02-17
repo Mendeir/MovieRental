@@ -5,8 +5,12 @@ using namespace std;
 
 void UserInterface::start () 
 {
-	displayMenuCommands ();
-	
+	while (true) 
+	{
+		displayMainMenuCommands ();
+		processCommandMainMenu (getUserCommand ());
+
+	}
 }
 
 void UserInterface::displayMainMenuCommands () 
@@ -31,6 +35,8 @@ int UserInterface::getUserCommand ()
 	//Prompt User
 	cout << "Enter command: ";
 	cin >> command;
+
+	return command;
 }
 
 void UserInterface::processCommandMainMenu (int command) 
