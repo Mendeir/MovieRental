@@ -2,8 +2,9 @@
 class UserInterface
 {
 	public:
+		void clear ();
 		void start ();
-		void displayMainMenuCommands ();
+		void mainMenu ();
 		int getUserCommand ();
 		void processCommandMainMenu (int givenCommand);
 };

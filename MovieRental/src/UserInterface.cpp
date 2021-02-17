@@ -3,17 +3,22 @@
 
 using namespace std;
 
+void UserInterface::clear ()
+{
+	cout << "\033[H\033[J";
+}
+
 void UserInterface::start () 
 {
 	while (true) 
 	{
-		displayMainMenuCommands ();
-		processCommandMainMenu (getUserCommand ());
+		mainMenu ();
+		
 
 	}
 }
 
-void UserInterface::displayMainMenuCommands () 
+void UserInterface::mainMenu () 
 {
 	cout << "========================================" << '\n';
 	cout << "      DAVE AND FRIENDS VIDEO STORE      " << '\n';
@@ -25,7 +30,10 @@ void UserInterface::displayMainMenuCommands ()
 	cout << "[5] Display All Videos" << '\n';
 	cout << "[6] Check Video Availability" << '\n';
 	cout << "[7] Customer Maintenance" << '\n';
-	cout << "[8] Exit Program" << '\n';
+	cout << "[8] Exit Program" << "\n\n";
+
+	processCommandMainMenu(getUserCommand ());
+	clear ();
 }
 
 int UserInterface::getUserCommand () 
@@ -41,10 +49,13 @@ int UserInterface::getUserCommand ()
 
 void UserInterface::processCommandMainMenu (int command) 
 {
+	clear ();
 	switch (command)
 	{
 		case 1:
+			int test;
 			cout << "New Video" << '\n';
+			cin >> test;
 			break;
 
 		case 2:
