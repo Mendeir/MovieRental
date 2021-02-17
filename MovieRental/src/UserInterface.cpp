@@ -9,7 +9,7 @@ void UserInterface::start ()
 	
 }
 
-void UserInterface::displayMenuCommands () 
+void UserInterface::displayMainMenuCommands () 
 {
 	cout << "========================================" << '\n';
 	cout << "      DAVE AND FRIENDS VIDEO STORE      " << '\n';
@@ -31,4 +31,46 @@ int UserInterface::getUserCommand ()
 	//Prompt User
 	cout << "Enter command: ";
 	cin >> command;
+}
+
+void UserInterface::processCommandMainMenu (int command) 
+{
+	switch (command)
+	{
+		case 1:
+			cout << "New Video" << '\n';
+			break;
+
+		case 2:
+			cout << "Rent a Video" << '\n';
+			break;
+
+		case 3:
+			cout << "Return a Video" << '\n';
+			break;
+
+		case 4:
+			cout << "Show Video Details" << '\n';
+			break;
+
+		case 5:
+			cout << "Display All Videos" << '\n';
+			break;
+
+		case 6:
+			cout << "Check Video Availability" << '\n';
+			break;
+
+		case 7:
+			cout << "Customer Maintenance" << '\n';
+			break;
+
+		case 8:
+			exit (1);
+			break;
+
+		default:
+			cout << "Invalid Command" << '\n';
+
+	}
 }
