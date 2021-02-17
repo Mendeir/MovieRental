@@ -3,6 +3,8 @@
 
 using namespace std;
 
+
+//Metohds
 void UserInterface::clear ()
 {
 	cout << "\033[H\033[J";
@@ -36,14 +38,8 @@ void UserInterface::mainMenu ()
 	clear ();
 }
 
-void UserInterface::customerMaintenanceSubMenu ()
-{
-	cout << "[1] Add New Customer" << '\n';
-	cout << "[2] Show Customer Details" << '\n';
-	cout << "[3] List of Videos Rentted by a Customer" << '\n';
-}
-
-int UserInterface::getUserCommand () 
+//Input Methods
+int UserInterface::getUserCommand ()
 {
 	int command = 0;
 
@@ -54,6 +50,26 @@ int UserInterface::getUserCommand ()
 	return command;
 }
 
+//Main Menu Methods
+void UserInterface::customerMaintenance ()
+{
+	cout << "========================================" << '\n';
+	cout << "          CUSTOMER MAINTENANCE          " << '\n';
+	cout << "========================================" << '\n';
+	customerMaintenanceSubMenu ();
+
+}
+
+void UserInterface::customerMaintenanceSubMenu ()
+{
+	cout << "[1] Add New Customer" << '\n';
+	cout << "[2] Show Customer Details" << '\n';
+	cout << "[3] List of Videos Rentted by a Customer" << '\n';
+}
+
+
+
+//Processing Methods
 void UserInterface::processCommandMainMenu (int command) 
 {
 	clear ();
@@ -98,3 +114,4 @@ void UserInterface::processCommandMainMenu (int command)
 
 	}
 }
+
