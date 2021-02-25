@@ -9,25 +9,31 @@ class MovieList
 {
 	private:
 		//Linked List ADT
-		typedef struct videoeNode
+		typedef struct videoNode
 		{
 			//Elements of the linked list
 			int videoID;
-			string movietitle;
-			string genre;
-			string production;
+			string movieTitle;
+			string movieGenre;
+			string movieProduction;
 			int numberOfCopies;
 			string movieImageFileName;
-
+			struct videoNode* next;
 		} *videoNodePtr;
 
+		// added node pointers
+		videoNodePtr headNode;
+		videoNodePtr currentNode;
+		videoNodePtr tailNode;
 	public:
+		static int movieCounter;
+
 		//Constructors
 		MovieList ();
-		~MovieList ();
+		//~MovieList ();
 
 		//Methods
-		void insertNewVideo ();
+		void insertNewVideo (string title, string genre, string production, int copies);
 		void rentAVideo ();
 		void returnAVideo ();
 		void showVideoDetails ();

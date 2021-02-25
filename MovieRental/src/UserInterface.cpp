@@ -111,10 +111,9 @@ void UserInterface::processCommandMainMenu (int command)
 	switch (command)
 	{
 		case 1:
-			int test;
-
-			cout << "New Video" << '\n';
-			cin >> test;
+			movieList.insertNewVideo("Buzzlightyear", "Cartoon", "Disney", 10);
+			movieList.insertNewVideo("The Incredibles", "Cartoon", "Disney", 10);
+			cin.get();
 			break;
 
 		case 2:

@@ -1,6 +1,11 @@
 #pragma once
+#include "MovieList.h"
+
 class UserInterface
 {
+	private:
+		MovieList movieList;
+	
 	public:
 		//Methods
 		void clear ();
