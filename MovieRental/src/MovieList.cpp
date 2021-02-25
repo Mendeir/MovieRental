@@ -1,5 +1,6 @@
 #include "MovieList.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -58,11 +59,11 @@ void MovieList::insertNewVideo (string title, string genre, string production, i
 		tempNode = nullptr;
 
 		// Inserting nodes in order
-		//while (currentNode != nullptr && currentNode->videoID < id)
-		//{
-		//	tempNode = currentNode;
-		//	currentNode = currentNode->next;
-		//}
+		while (currentNode != nullptr && currentNode->videoID < newVideo->videoID)
+		{
+			tempNode = currentNode;
+			currentNode = currentNode->next;
+		}
 
 		// node inserting at the first node
 		if (tempNode == nullptr) {
@@ -118,7 +119,25 @@ void MovieList::showVideoDetails ()
 */
 void MovieList::displayVideos ()
 {
-
+	// check if the list is empty
+	if(headNode == nullptr)
+	{
+		cout << "No movies has been added yet. \n";
+		cin.get();
+	}
+	// displaying all videos
+	else
+	{
+		cout << "Video ID" << "\t" << setw(10) << "Movie Title" << "\t\t" << setw(10) << "Genre" << "\t\t" << setw(10) << "Production \n";
+		currentNode = headNode;
+		while (currentNode != nullptr)
+		{
+			cout << currentNode->videoID << "\t\t" << setw(10) << currentNode->movieTitle;
+			cout << "\t\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
+			currentNode = currentNode->next;
+		}
+		cin.get();
+	}
 }
 
 /**

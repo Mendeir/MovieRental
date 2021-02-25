@@ -130,6 +130,8 @@ void UserInterface::processCommandMainMenu (int command)
 
 		case 5:
 			cout << "Display All Videos" << '\n';
+			movieList.displayVideos();
+			cin.get();
 			break;
 
 		case 6:
