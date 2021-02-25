@@ -1,11 +1,11 @@
-#ifndef _VIDEOSTORE_H_
-#define _VIDEOSTORE_H_
+#ifndef _MOVIELIST_H_
+#define _MOVIELIST_H_
 
 #include <string>
 
 using namespace std;
 
-class VideoStore
+class MovieList
 {
 	private:
 		//Linked List ADT
@@ -23,8 +23,8 @@ class VideoStore
 
 	public:
 		//Constructors
-		VideoStore ();
-		~VideoStore ();
+		MovieList ();
+		~MovieList ();
 
 		//Methods
 		void insertNewVideo ();

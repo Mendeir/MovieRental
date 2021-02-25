@@ -139,13 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Customer.cpp" />
+    <ClCompile Include="src\MovieRental.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\UserInterface.cpp" />
-    <ClCompile Include="src\VideoStore.cpp" />
+    <ClCompile Include="src\MovieList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Customer.h" />
+    <ClInclude Include="src\MovieRental.h" />
     <ClInclude Include="src\UserInterface.h" />
-    <ClInclude Include="src\VideoStore.h" />
+    <ClInclude Include="src\MovieList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

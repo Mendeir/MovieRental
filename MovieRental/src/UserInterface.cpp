@@ -4,12 +4,22 @@
 using namespace std;
 
 
-//Metohds
+//Methods
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void UserInterface::clear ()
 {
 	cout << "\033[H\033[J";
 }
 
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void UserInterface::start () 
 {
 	while (true) 
@@ -20,6 +30,11 @@ void UserInterface::start ()
 	}
 }
 
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void UserInterface::mainMenu () 
 {
 	cout << "========================================" << '\n';
@@ -39,6 +54,11 @@ void UserInterface::mainMenu ()
 }
 
 //Input Methods
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 int UserInterface::getUserCommand ()
 {
 	int command = 0;
@@ -51,6 +71,11 @@ int UserInterface::getUserCommand ()
 }
 
 //Main Menu Methods
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void UserInterface::customerMaintenance ()
 {
 	cout << "========================================" << '\n';
@@ -61,6 +86,11 @@ void UserInterface::customerMaintenance ()
 
 }
 
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void UserInterface::customerMaintenanceSubMenu ()
 {
 	cout << "[1] Add New Customer" << '\n';
@@ -69,7 +99,11 @@ void UserInterface::customerMaintenanceSubMenu ()
 }
 
 
-
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 //Processing Methods
 void UserInterface::processCommandMainMenu (int command) 
 {
@@ -117,6 +151,11 @@ void UserInterface::processCommandMainMenu (int command)
 	}
 }
 
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void UserInterface::processCustomerMaintenance (int command)
 {
 	clear ();
