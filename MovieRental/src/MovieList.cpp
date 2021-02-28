@@ -26,7 +26,7 @@ int MovieList::movieCounter = 0;
 	Precondition:
 	Postcondtion:
 */
-void MovieList::insertNewVideo (string title, string genre, string production, int copies)
+void MovieList::newVideo (string title, string genre, string production, int copies)
 {
 	// initialization for node
 	videoNodePtr newVideo = new videoNode();

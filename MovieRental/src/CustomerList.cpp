@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//Methods
 /**
 	Description:
 	Precondition:
@@ -39,3 +40,24 @@ void showCustomerDetails ();
 	Postcondtion:
 */
 void printCustomerList ();
+
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
+void CustomerList::searchCustomerId (int givenId)
+{
+	for (Customer customers : customerCollection)
+	{
+		if (customers.getCustomerId() == givenId)
+		{
+			cout << customers.getCustomerId () << '\n';
+			cout << customers.getCustomerName () << '\n';
+			cout << customers.getCustomerAddress () << '\n';
+			return;
+		}
+	}
+
+	cout << "Customer not found." << '\n';
+}

@@ -3,13 +3,13 @@
 
 using namespace std;
 
-
 //Methods
 /**
 	Description:
 	Precondition:
 	Postcondtion:
 */
+
 void UserInterface::clear ()
 {
 	cout << "\033[H\033[J";
@@ -24,6 +24,7 @@ void UserInterface::start ()
 {
 	while (true) 
 	{
+		
 		mainMenu ();
 		
 
@@ -111,13 +112,15 @@ void UserInterface::processCommandMainMenu (int command)
 	switch (command)
 	{
 		case 1:
-			movieList.insertNewVideo("Buzzlightyear", "Cartoon", "Disney", 10);
-			movieList.insertNewVideo("The Incredibles", "Cartoon", "Disney", 10);
+			//movieList.insertNewVideo("Buzzlightyear", "Cartoon", "Disney", 10);
+			//movieList.insertNewVideo("The Incredibles", "Cartoon", "Disney", 10);
 			cin.get();
 			break;
 
 		case 2:
 			cout << "Rent a Video" << '\n';
+			movieRental.rentAVideo();
+			cin.get ();
 			break;
 
 		case 3:
@@ -130,7 +133,7 @@ void UserInterface::processCommandMainMenu (int command)
 
 		case 5:
 			cout << "Display All Videos" << '\n';
-			movieList.displayVideos();
+			//movieList.displayVideos();
 			cin.get();
 			break;
 
@@ -166,7 +169,6 @@ void UserInterface::processCustomerMaintenance (int command)
 		case 1:
 		{
 			cout << "Add New Customer" << '\n';
-			Customer newCustomer;
 			Customer mg;
 			Customer dave;
 			string name;
@@ -180,9 +182,10 @@ void UserInterface::processCustomerMaintenance (int command)
 			dave.setCustomerAddress ("Venus");
 
 			cout << "---------------\n";
-			customerList.addCustomer(mg);
-			customerList.addCustomer (dave);
-			customerList.showAllCustomer();
+			movieRental.addNewCustomer (mg);
+			movieRental.addNewCustomer (dave);
+			movieRental.showAllCustomers();
+
 			cin.get ();
 			break;
 		}
