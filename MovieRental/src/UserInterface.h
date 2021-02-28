@@ -2,11 +2,12 @@
 #include "MovieList.h"
 #include "CustomerList.h"
 #include "Customer.h"
+#include "MovieRental.h"
+
 class UserInterface
 {
 	private:
-		MovieList movieList;
-		CustomerList customerList;
+		MovieRental movieRental;
 
 	public:
 		//Methods

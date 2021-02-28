@@ -33,7 +33,7 @@ class MovieList
 		//~MovieList ();
 
 		//Methods
-		void insertNewVideo (string title, string genre, string production, int copies);
+		void newVideo (string title, string genre, string production, int copies);
 		void rentAVideo ();
 		void returnAVideo ();
 		void showVideoDetails ();

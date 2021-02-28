@@ -8,12 +8,15 @@
 class CustomerList
 {
 	private:
+		//Variables
 		vector<Customer> customerCollection;
 
 	public:
+		//Methods
 		void addCustomer (Customer givenCustomer);
 		void showCustomerDetails ();
 		void printCustomerList ();
+		void searchCustomerId (int givenId);
 
 		void showAllCustomer ();
 };

@@ -2,14 +2,30 @@
 #define _MOVIERENTAL_H_
 
 #include "MovieList.h"
-#include "Customer.h"
+#include "CustomerList.h"
 
 class MovieRental
 {
 	private:
-		Customer test;
-		MovieList test2;
+		//Instance Variables
+		CustomerList customerList;
+		MovieList movieList;
+
+	public:
+		//Methods
+		void newVideo ();
+		void rentAVideo ();
+		void returnVideo ();
+		void showVideoDetails ();
+		void displayAllVideos ();
+		void checkVideoAvailability ();
+		void addNewCustomer (Customer givenCustomer);
+		void showCustomerDetails ();
+		void listVideosRentedByCustomer ();
+		void showAllCustomers ();
 };
+
+
 
 #endif // !_MOVIERENTAL_H_
 
