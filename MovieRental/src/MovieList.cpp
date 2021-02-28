@@ -12,7 +12,7 @@ MovieList::MovieList ()
 	tailNode = nullptr;
 }
 
-int MovieList::movieCounter = 0;
+int MovieList::movieCounter = 1;
 
 //~MovieList::MovieList () { }
 

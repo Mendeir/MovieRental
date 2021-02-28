@@ -13,7 +13,7 @@ class MovieRental
 
 	public:
 		//Methods
-		void newVideo ();
+		void newVideo (string title, string genre, string production, int copies);
 		void rentAVideo ();
 		void returnVideo ();
 		void showVideoDetails ();

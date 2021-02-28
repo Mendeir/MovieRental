@@ -112,10 +112,28 @@ void UserInterface::processCommandMainMenu (int command)
 	switch (command)
 	{
 		case 1:
-			//movieList.insertNewVideo("Buzzlightyear", "Cartoon", "Disney", 10);
-			//movieList.insertNewVideo("The Incredibles", "Cartoon", "Disney", 10);
+		{
+			string title;
+			string genre;
+			string production;
+			int numCopies;
+			MovieList movieItem;
+
+			cout << "New Video" << '\n';
+			cout << "Video ID:" << movieItem.movieCounter << '\n';
+			cout << "Movie Title: ";
+			cin >> title;
+			cout << "Genre: ";
+			cin >> genre;
+			cout << "Production: ";
+			cin >> production;
+			cout << "Numbers of copies: ";
+			cin >> numCopies;
+			movieRental.newVideo(title, genre, production, numCopies);
 			cin.get();
 			break;
+		}
+			
 
 		case 2:
 			cout << "Rent a Video" << '\n';
@@ -133,7 +151,7 @@ void UserInterface::processCommandMainMenu (int command)
 
 		case 5:
 			cout << "Display All Videos" << '\n';
-			//movieList.displayVideos();
+			movieRental.displayAllVideos();
 			cin.get();
 			break;
 
@@ -169,23 +187,19 @@ void UserInterface::processCustomerMaintenance (int command)
 		case 1:
 		{
 			cout << "Add New Customer" << '\n';
-			Customer mg;
-			Customer dave;
-			string name;
+			Customer newCustomer;
+			string userName;
+			string userAddress;
 
-			cout << "MG ID: " << mg.getCustomerId () << '\n';
-			mg.setCustomerName ("MG");
-			mg.setCustomerAddress ("Mars");
+			cout << "Customer ID: " << newCustomer.getCustomerId() << '\n';
 
-			cout << "Dave ID: " << dave.getCustomerId () << '\n';
-			dave.setCustomerName ("Dave");
-			dave.setCustomerAddress ("Venus");
-
-			cout << "---------------\n";
-			movieRental.addNewCustomer (mg);
-			movieRental.addNewCustomer (dave);
-			movieRental.showAllCustomers();
-
+			cout << "Name: ";
+			cin >> userName;
+			newCustomer.setCustomerName(userName);
+			cout << "Address: ";
+			cin >> userAddress;
+			newCustomer.setCustomerAddress(userAddress);
+			movieRental.addNewCustomer(newCustomer);
 			cin.get ();
 			break;
 		}
