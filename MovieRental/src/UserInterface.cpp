@@ -164,11 +164,12 @@ void UserInterface::processCustomerMaintenance (int command)
 	switch (command)
 	{
 		case 1:
-			int test;
+		{
 			cout << "Add New Customer" << '\n';
-			cin >> test;
-
+			Customer mg("MG", "Mars");
+			//customerList.addCustomer(mg);
 			break;
+		}
 
 		case 2:
 			cout << "Show Customer Details" << '\n';
