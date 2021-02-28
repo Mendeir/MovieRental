@@ -5,16 +5,19 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-class CustomerList 
+class CustomerList
 {
 	private:
 		vector<Customer> customerCollection;
+
 	public:
 		void addCustomer (Customer givenCustomer);
 		void showCustomerDetails ();
 		void printCustomerList ();
-}
 
-#endif _CUSTOMERLIST_H_
+		void showAllCustomer ();
+};
+
+#endif
+
+

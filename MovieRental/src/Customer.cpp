@@ -4,12 +4,12 @@
 using namespace std;
 
 //Constructor
-Customer::Customer (string name, string address)
+Customer::Customer ()
 {
 	++customerIdCounter;
 	customerId = customerIdCounter;
-	customerName = name;
-	customerAddress = address;
+	customerName = "Unkown";
+	customerAddress = "Unkown";
 }
 
 int Customer::customerIdCounter = 0;
@@ -17,3 +17,28 @@ int Customer::customerIdCounter = 0;
 
 //Methods
 
+//Getters
+int Customer::getCustomerId()
+{
+	return customerId;
+}
+
+string Customer::getCustomerName ()
+{
+	return customerName;
+}
+
+string Customer::getCustomerAddress ()
+{
+	return customerAddress;
+}
+
+void Customer::setCustomerName(string name)
+{
+	customerName = name;
+}
+
+void Customer::setCustomerAddress(string address)
+{
+	customerAddress = address;
+}

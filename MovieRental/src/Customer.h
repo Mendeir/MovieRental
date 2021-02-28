@@ -13,10 +13,19 @@ class Customer
 		string customerAddress;
 		
 	public:
-		static int customerIdCounter;
-		Customer (string name, string address);
+		//Constructors and Destructor
+		Customer ();
 		//~Customer ();
 		
+
+		static int customerIdCounter;
+		
+		//Getters and Setters
+		int getCustomerId ();
+		string getCustomerName ();
+		string getCustomerAddress ();
+		void setCustomerName (string name);
+		void setCustomerAddress (string address);
 
 };
 

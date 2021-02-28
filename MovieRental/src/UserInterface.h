@@ -1,12 +1,12 @@
 #pragma once
 #include "MovieList.h"
-//#include "CustomerList.h"
+#include "CustomerList.h"
 #include "Customer.h"
 class UserInterface
 {
 	private:
 		MovieList movieList;
-		//CustomerList customerList;
+		CustomerList customerList;
 
 	public:
 		//Methods

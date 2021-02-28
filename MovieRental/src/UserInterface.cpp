@@ -166,8 +166,24 @@ void UserInterface::processCustomerMaintenance (int command)
 		case 1:
 		{
 			cout << "Add New Customer" << '\n';
-			Customer mg("MG", "Mars");
-			//customerList.addCustomer(mg);
+			Customer newCustomer;
+			Customer mg;
+			Customer dave;
+			string name;
+
+			cout << "MG ID: " << mg.getCustomerId () << '\n';
+			mg.setCustomerName ("MG");
+			mg.setCustomerAddress ("Mars");
+
+			cout << "Dave ID: " << dave.getCustomerId () << '\n';
+			dave.setCustomerName ("Dave");
+			dave.setCustomerAddress ("Venus");
+
+			cout << "---------------\n";
+			customerList.addCustomer(mg);
+			customerList.addCustomer (dave);
+			customerList.showAllCustomer();
+			cin.get ();
 			break;
 		}
 

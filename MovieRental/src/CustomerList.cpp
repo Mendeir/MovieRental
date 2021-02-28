@@ -1,24 +1,29 @@
 #include "CustomerList.h"
+#include <vector>
 #include <iostream>
 
 using namespace std;
 
-/**	
+/**
 	Description:
 	Precondition:
 	Postcondtion:
-*/	
-void CustomerList::addCustomer (Customer givenCustomer);
+*/
+void CustomerList::addCustomer (Customer givenCustomer)
 {
-	customerCollection.add(givenCustomer);
+	customerCollection.push_back(givenCustomer);
 }
 
-void CustomerList::showAllCustomer () 
+void CustomerList::showAllCustomer ()
 {
-	for (Customer customers : customerCollection) 
+	for (Customer customers : customerCollection)
 	{
-		cout << customers;
+		cout << customers.getCustomerId() << '\n';
+		cout << customers.getCustomerName () << '\n';
+		cout << customers.getCustomerAddress () << '\n';
 	}
+
+	cin.get ();
 }
 
 /**
@@ -26,7 +31,7 @@ void CustomerList::showAllCustomer ()
 	Precondition:
 	Postcondtion:
 */
-void showCustomerDetails();
+void showCustomerDetails ();
 
 /**
 	Description:
