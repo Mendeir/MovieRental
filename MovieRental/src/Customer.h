@@ -11,13 +11,12 @@ class Customer
 		int customerId;
 		string customerName;
 		string customerAddress;
-
+		
 	public:
-		Customer ();
-		~Customer ();
-		void addCustomer ();
-		void showCustomerDetails ();
-		void printCustomerList ();
+		static int customerIdCounter;
+		Customer (string name, string address);
+		//~Customer ();
+		
 
 };
 
