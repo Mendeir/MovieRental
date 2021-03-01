@@ -14,9 +14,9 @@ using namespace std;
 	Precondition:
 	Postcondtion:
 */
-void MovieRental::newVideo ()
+void MovieRental::newVideo (string title, string genre, string production, int copies)
 {
-
+	movieList.newVideo(title, genre, production, copies);
 }
 
 /**
@@ -50,7 +50,10 @@ void showVideoDetails ();
 	Precondition:
 	Postcondtion:
 */
-void displayAllVideos ();
+void MovieRental::displayAllVideos()
+{
+	movieList.displayVideos();
+}
 
 /**
 	Description:
@@ -66,7 +69,7 @@ void checkVideoAvailability ();
 */
 void MovieRental::addNewCustomer (Customer givenCustomer)
 {
-	customerList.addCustomer (givenCustomer);
+	customerList.addCustomer(givenCustomer);
 }
 
 /**
