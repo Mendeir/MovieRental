@@ -109,6 +109,36 @@ void MovieList::returnAVideo ()
 */
 void MovieList::showVideoDetails ()
 {
+	{
+		// CHECK IF THE LIST IS EMPTY, IF NOT SHOW THE DETAILS
+		if (headNode == nullptr)
+		{
+			cout << "No movie details to be displayed yet...\n";
+			cin.get();
+		}
+		//SHOWING ALL THE DETAILS OF THE MOVIE
+
+		else
+		{
+			
+			currentNode = headNode;
+
+			while (currentNode != nullptr)
+			{
+				cout << "\n";
+			
+				cout << "Video ID: " << currentNode->videoID << "\n";
+				cout << "Movie Title: " << currentNode->movieTitle << "\n";
+				cout << "Genre : " << currentNode->movieGenre << "\n";
+				cout << "Production : " << currentNode->movieProduction << "\n";
+				cout << "Number of Copies : " << currentNode->numberOfCopies << "\n";
+
+
+				currentNode = currentNode->next;
+			}
+			cin.get();
+		}
+	}
 
 }
 
@@ -145,8 +175,42 @@ void MovieList::displayVideos ()
 	Precondition:
 	Postcondtion:
 */
-void MovieList::checkVideoAvailability ()
+void MovieList::checkVideoAvailability (int givenVideoID)
 {
+
+	//check if the list is empty
+	if (headNode == nullptr)
+	{
+		cout << "No movie details to be displayed yet...\n";
+		cin.get();
+	}	
+	else
+	{
+
+		currentNode = headNode;
+
+		while (givenVideoID == currentNode -> videoID )
+		{
+			cout << "\n";
+			cout << "Movie Title: " << currentNode->movieTitle << "\n";
+			cout << "Genre : " << currentNode->movieGenre << "\n";
+			cout << "Production : " << currentNode->movieProduction << "\n";
+			cout << "Number of Copies : " << currentNode->numberOfCopies << "\n";
+			if (currentNode->numberOfCopies == 0) 
+			{
+				cout << "\n";
+				cout << "NOT AVAILABLE";
+			}
+			else
+			{
+				cout << "\n";
+				cout << "AVAILABLE";
+			}
+
+			currentNode = currentNode->next;
+		}
+		cin.get();
+	}
 
 }
 

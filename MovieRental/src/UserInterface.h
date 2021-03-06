@@ -24,7 +24,7 @@ class UserInterface
 		void returnVideo();
 		void showVideoDetails();
 		void displayAllVideos();
-		void checkVideoAvailability();
+		void checkVideoAvailability(int givenVideoID);
 		void customerMaintenance();
 		void customerMaintenanceSubMenu();
 

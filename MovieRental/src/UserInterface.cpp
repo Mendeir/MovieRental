@@ -113,6 +113,7 @@ void UserInterface::processCommandMainMenu (int command)
 	{
 		case 1:
 		{
+			
 			string title;
 			string genre;
 			string production;
@@ -147,6 +148,8 @@ void UserInterface::processCommandMainMenu (int command)
 
 		case 4:
 			cout << "Show Video Details" << '\n';
+			movieRental.showVideoDetails();
+			cin.get();
 			break;
 
 		case 5:
@@ -156,13 +159,19 @@ void UserInterface::processCommandMainMenu (int command)
 			break;
 
 		case 6:
+		
+			
 			cout << "Check Video Availability" << '\n';
-			break;
+			movieRental.checkVideoAvailability();
+			cin.get();
 
-		case 7:
-			customerMaintenance ();
 			break;
+		
+		case 7: 
+			customerMaintenance();
 
+			break;
+		
 		case 8:
 			exit (1);
 			break;

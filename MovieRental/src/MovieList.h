@@ -38,7 +38,7 @@ class MovieList
 		void returnAVideo ();
 		void showVideoDetails ();
 		void displayVideos ();
-		void checkVideoAvailability ();
+		void checkVideoAvailability (int givenVideoID);
 
 };
 

@@ -50,8 +50,10 @@ void CustomerList::searchCustomerId (int givenId)
 {
 	for (Customer customers : customerCollection)
 	{
+		// Searching for the given VIDEO ID by the user
 		if (customers.getCustomerId() == givenId)
 		{
+			// IF THE GIVENCUSTOMER ID IS EQUAL TO GIVEN ID BY THE USER IT WILL GOING TO PRINT THE DETAILS
 			cout << customers.getCustomerId () << '\n';
 			cout << customers.getCustomerName () << '\n';
 			cout << customers.getCustomerAddress () << '\n';
