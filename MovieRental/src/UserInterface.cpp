@@ -1,6 +1,7 @@
 #include "UserInterface.h"
 #include <iostream>
-
+#include <string>
+//#include <conio.h>
 using namespace std;
 
 //Methods
@@ -120,13 +121,19 @@ void UserInterface::processCommandMainMenu (int command)
 			MovieList movieItem;
 
 			cout << "New Video" << '\n';
-			cout << "Video ID:" << movieItem.movieCounter << '\n';
+			cout << "Video ID:" << movieItem.movieCounter + 1 << '\n';
+			cin.ignore(32767,'\n');
 			cout << "Movie Title: ";
-			cin >> title;
+			getline(cin, title);
+
+			cin.ignore(32767,'\n');
 			cout << "Genre: ";
-			cin >> genre;
+			getline (cin, genre);
+			
+			cin.ignore(32767,'\n');
 			cout << "Production: ";
-			cin >> production;
+			getline(cin, production);
+			
 			cout << "Numbers of copies: ";
 			cin >> numCopies;
 			movieRental.newVideo(title, genre, production, numCopies);
