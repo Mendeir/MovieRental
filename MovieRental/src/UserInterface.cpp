@@ -145,11 +145,12 @@ void UserInterface::processCommandMainMenu (int command)
 		case 2:
 			cout << "Rent a Video" << '\n';
 			movieRental.rentAVideo();
-			cin.get ();
 			break;
 
 		case 3:
 			cout << "Return a Video" << '\n';
+			movieRental.returnVideo();
+			cin.get ();
 			break;
 
 		case 4:
@@ -213,10 +214,14 @@ void UserInterface::processCustomerMaintenance (int command)
 
 		case 2:
 			cout << "Show Customer Details" << '\n';
+			movieRental.showCustomerDetails ();
+			cin.get ();
 			break;
 
 		case 3:
 			cout << "List of Videos Rented by a Customer" << '\n';
+			movieRental.listVideosRentedByCustomer ();
+			cin.get ();
 			break;
 
 		default:
