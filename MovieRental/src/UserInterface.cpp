@@ -121,7 +121,7 @@ void UserInterface::processCommandMainMenu (int command)
 			MovieList movieItem;
 
 			cout << "New Video" << '\n';
-			cout << "Video ID:" << movieItem.movieCounter + 1 << '\n';
+			cout << "Video ID: " << movieItem.movieCounter + 1 << '\n';
 			cin.ignore(32767,'\n');
 			cout << "Movie Title: ";
 			getline(cin, title);
