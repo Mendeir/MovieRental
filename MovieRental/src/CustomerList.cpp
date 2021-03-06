@@ -32,7 +32,21 @@ void CustomerList::showAllCustomer ()
 	Precondition:
 	Postcondtion:
 */
-void showCustomerDetails ();
+
+void CustomerList::showCustomerDetails (int givenId)
+{
+	for (Customer customers : customerCollection)
+	{
+		if (customers.getCustomerId() == givenId)
+		{
+			cout << "Name: "  << "\t\t" << customers.getCustomerName () << '\n';
+			cout << "Address: " << '\t' << customers.getCustomerAddress () << '\n';
+			return;
+		}
+	}
+
+	cout << "Customer not found." << '\n';
+}
 
 /**
 	Description:
@@ -40,24 +54,3 @@ void showCustomerDetails ();
 	Postcondtion:
 */
 void printCustomerList ();
-
-/**
-	Description:
-	Precondition:
-	Postcondtion:
-*/
-void CustomerList::searchCustomerId (int givenId)
-{
-	for (Customer customers : customerCollection)
-	{
-		if (customers.getCustomerId() == givenId)
-		{
-			cout << customers.getCustomerId () << '\n';
-			cout << customers.getCustomerName () << '\n';
-			cout << customers.getCustomerAddress () << '\n';
-			return;
-		}
-	}
-
-	cout << "Customer not found." << '\n';
-}
