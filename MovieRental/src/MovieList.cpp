@@ -12,7 +12,7 @@ MovieList::MovieList ()
 	tailNode = nullptr;
 }
 
-int MovieList::movieCounter = 1;
+int MovieList::movieCounter = 0;
 
 //~MovieList::MovieList () { }
 
@@ -33,7 +33,7 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 	videoNodePtr tempNode;
 
 	++movieCounter;
-	cout << movieCounter << '\n';
+	
 	newVideo->videoID = movieCounter;
 	newVideo->movieTitle = title;
 	newVideo->movieGenre = genre;
@@ -133,7 +133,7 @@ void MovieList::displayVideos ()
 		while (currentNode != nullptr)
 		{
 			cout << currentNode->videoID << "\t\t" << setw(10) << currentNode->movieTitle;
-			cout << "\t\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
+			cout << "\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
 			currentNode = currentNode->next;
 		}
 		cin.get();
