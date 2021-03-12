@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\FileHandler.cpp" />
     <ClCompile Include="src\CustomerList.cpp" />
     <ClCompile Include="src\Customer.cpp" />
     <ClCompile Include="src\MovieRental.cpp" />
@@ -148,7 +147,6 @@
     <ClCompile Include="src\MovieList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\FileHandler.h" />
     <ClInclude Include="src\CustomerList.h" />
     <ClInclude Include="src\Customer.h" />
     <ClInclude Include="src\MovieRental.h" />
