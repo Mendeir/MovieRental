@@ -14,10 +14,8 @@ class CustomerList
 	public:
 		//Methods
 		void addCustomer (Customer givenCustomer);
-		void showCustomerDetails (int givenId);
-		void printCustomerList ();
+		bool showCustomerDetails (int givenId);
 
-		void showAllCustomer ();
 };
 
 #endif

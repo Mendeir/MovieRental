@@ -22,13 +22,11 @@ void UserInterface::clear ()
 */
 void UserInterface::start () 
 {
-	while (true) 
-	{
-		
-		mainMenu ();
-		
+	movieRental.readCustomerRentFromFile ();
 
-	}
+	while (true) 
+		mainMenu ();
+
 }
 
 /**
@@ -135,7 +133,6 @@ void UserInterface::processCommandMainMenu (int command)
 			cout << "Numbers of copies: ";
 			cin >> numCopies;
 			movieRental.newVideo(title, genre, production, numCopies);
-			cin.get();
 			break;
 		}
 			
@@ -170,6 +167,7 @@ void UserInterface::processCommandMainMenu (int command)
 			break;
 
 		case 8:
+			movieRental.writeCustomerRentToFile ();
 			exit (1);
 			break;
 

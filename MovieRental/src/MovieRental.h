@@ -28,8 +28,14 @@ class MovieRental
 		void addNewCustomer (Customer givenCustomer);
 		void showCustomerDetails ();
 		void listVideosRentedByCustomer ();
-		void showAllCustomers ();
 		int getCustomerID ();
+
+		void promptUser ();
+
+		//File Handling Methods
+		void writeCustomerRentToFile ();
+		void readCustomerRentFromFile ();
+		void testReadingFile ();
 };
 
 
