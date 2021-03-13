@@ -192,7 +192,7 @@ void MovieList::displayVideos ()
 		while (currentNode != nullptr)
 		{
 			cout << currentNode->videoID << "\t\t" << setw(10) << currentNode->movieTitle;
-			cout << "\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
+			cout << "\t\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
 			currentNode = currentNode->next;
 		}
 		cin.get();

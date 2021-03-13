@@ -111,6 +111,7 @@ void UserInterface::processCommandMainMenu (int command)
 	{
 		case 1:
 		{
+			
 			string title;
 			string genre;
 			string production;
@@ -132,6 +133,7 @@ void UserInterface::processCommandMainMenu (int command)
 			
 			cout << "Numbers of copies: ";
 			cin >> numCopies;
+			
 			movieRental.newVideo(title, genre, production, numCopies);
 			break;
 		}
@@ -197,11 +199,12 @@ void UserInterface::processCustomerMaintenance (int command)
 
 			cout << "Customer ID: " << newCustomer.getCustomerId() << '\n';
 
+			cin.ignore(32767, '\n');
 			cout << "Name: ";
-			cin >> userName;
+			getline(cin, userName);
 			newCustomer.setCustomerName(userName);
 			cout << "Address: ";
-			cin >> userAddress;
+			getline(cin, userAddress);
 			newCustomer.setCustomerAddress(userAddress);
 			movieRental.addNewCustomer(newCustomer);
 			cin.get ();
