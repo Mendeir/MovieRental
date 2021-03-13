@@ -127,11 +127,11 @@ void MovieList::showVideoDetails ()
 			{
 				cout << "\n";
 			
-				cout << "Video ID: " << currentNode->videoID << "\n";
-				cout << "Movie Title: " << currentNode->movieTitle << "\n";
-				cout << "Genre : " << currentNode->movieGenre << "\n";
-				cout << "Production : " << currentNode->movieProduction << "\n";
-				cout << "Number of Copies : " << currentNode->numberOfCopies << "\n";
+				cout << "Video ID:\t\t" << currentNode->videoID << "\n";
+				cout << "Movie Title:\t\t" << currentNode->movieTitle << "\n";
+				cout << "Genre :\t\t\t" << currentNode->movieGenre << "\n";
+				cout << "Production :\t\t" << currentNode->movieProduction << "\n";
+				cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n";
 
 
 				currentNode = currentNode->next;
@@ -189,14 +189,16 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 
 		currentNode = headNode;
 
-		while (givenVideoID == currentNode -> videoID )
+		while (givenVideoID == currentNode->videoID)
 		{
 			cout << "\n";
-			cout << "Movie Title: " << currentNode->movieTitle << "\n";
-			cout << "Genre : " << currentNode->movieGenre << "\n";
-			cout << "Production : " << currentNode->movieProduction << "\n";
-			cout << "Number of Copies : " << currentNode->numberOfCopies << "\n";
-			if (currentNode->numberOfCopies == 0) 
+			cout << "Movie Title:\t\t" << currentNode->movieTitle << "\n";
+			cout << "Genre :\t\t\t" << currentNode->movieGenre << "\n";
+			cout << "Production :\t\t" << currentNode->movieProduction << "\n";
+			cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n";
+			currentNode = currentNode->next;
+
+			if (currentNode->numberOfCopies == 0)
 			{
 				cout << "\n";
 				cout << "NOT AVAILABLE";
@@ -205,9 +207,9 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 			{
 				cout << "\n";
 				cout << "AVAILABLE";
+				currentNode = currentNode->next;
 			}
 
-			currentNode = currentNode->next;
 		}
 		cin.get();
 	}
