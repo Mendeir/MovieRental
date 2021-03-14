@@ -38,10 +38,9 @@ class MovieList
 		void returnAVideo (int givenID);
 		void showVideoDetails ();
 		void displayVideos ();
-		void checkVideoAvailability ();
+		void checkVideoAvailability (int givenVideoID);
 		void searchVideoID (int givenID);
 		string getTitleByID (int givenID);
-
 };
 
 #endif

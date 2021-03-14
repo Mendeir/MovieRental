@@ -113,7 +113,10 @@ void MovieRental::returnVideo ()
 	Precondition:
 	Postcondtion:
 */
-void showVideoDetails ();
+void MovieRental::showVideoDetails ()
+{
+	movieList.showVideoDetails();
+}
 
 /**
 	Description:
@@ -130,7 +133,16 @@ void MovieRental::displayAllVideos()
 	Precondition:
 	Postcondtion:
 */
-void checkVideoAvailability ();
+void MovieRental::checkVideoAvailability()
+{
+	int givenVideoID = 0;
+	cout << "Video ID: ";
+	cin >> givenVideoID;
+	movieList.checkVideoAvailability(givenVideoID);
+
+
+}
+
 
 /**
 	Description:
