@@ -34,12 +34,13 @@ class MovieList
 
 		//Methods
 		void newVideo (string title, string genre, string production, int copies);
-		void rentAVideo ();
-		void returnAVideo ();
+		bool rentAVideo (int givenID);
+		void returnAVideo (int givenID);
 		void showVideoDetails ();
 		void displayVideos ();
 		void checkVideoAvailability (int givenVideoID);
-
+		void searchVideoID (int givenID);
+		string getTitleByID (int givenID);
 };
 
 #endif

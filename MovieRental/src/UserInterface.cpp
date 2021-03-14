@@ -1,6 +1,6 @@
 #include "UserInterface.h"
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 //Methods
@@ -22,13 +22,11 @@ void UserInterface::clear ()
 */
 void UserInterface::start () 
 {
-	while (true) 
-	{
-		
-		mainMenu ();
-		
+	movieRental.readCustomerRentFromFile ();
 
-	}
+	while (true) 
+		mainMenu ();
+
 }
 
 /**
@@ -121,17 +119,21 @@ void UserInterface::processCommandMainMenu (int command)
 			MovieList movieItem;
 
 			cout << "New Video" << '\n';
-			cout << "Video ID:" << movieItem.movieCounter << '\n';
+			cout << "Video ID: " << movieItem.movieCounter + 1 << '\n';
+
+			cin.ignore(32767,'\n');
 			cout << "Movie Title: ";
-			cin >> title;
+			getline(cin, title);
+
 			cout << "Genre: ";
-			cin >> genre;
+			getline (cin, genre);
+			
 			cout << "Production: ";
-			cin >> production;
+			getline(cin, production);
+			
 			cout << "Numbers of copies: ";
 			cin >> numCopies;
 			movieRental.newVideo(title, genre, production, numCopies);
-			cin.get();
 			break;
 		}
 			
@@ -139,11 +141,12 @@ void UserInterface::processCommandMainMenu (int command)
 		case 2:
 			cout << "Rent a Video" << '\n';
 			movieRental.rentAVideo();
-			cin.get ();
 			break;
 
 		case 3:
 			cout << "Return a Video" << '\n';
+			movieRental.returnVideo();
+			cin.get ();
 			break;
 
 		case 4:
@@ -173,6 +176,7 @@ void UserInterface::processCommandMainMenu (int command)
 			break;
 		
 		case 8:
+			movieRental.writeCustomerRentToFile ();
 			exit (1);
 			break;
 
@@ -215,10 +219,14 @@ void UserInterface::processCustomerMaintenance (int command)
 
 		case 2:
 			cout << "Show Customer Details" << '\n';
+			movieRental.showCustomerDetails ();
+			cin.get ();
 			break;
 
 		case 3:
 			cout << "List of Videos Rented by a Customer" << '\n';
+			movieRental.listVideosRentedByCustomer ();
+			cin.get ();
 			break;
 
 		default:

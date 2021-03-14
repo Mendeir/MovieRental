@@ -1,6 +1,7 @@
 #include "MovieList.h"
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ MovieList::MovieList ()
 	tailNode = nullptr;
 }
 
-int MovieList::movieCounter = 1;
+int MovieList::movieCounter = 0;
 
 //~MovieList::MovieList () { }
 
@@ -33,7 +34,7 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 	videoNodePtr tempNode;
 
 	++movieCounter;
-	cout << movieCounter << '\n';
+	
 	newVideo->videoID = movieCounter;
 	newVideo->movieTitle = title;
 	newVideo->movieGenre = genre;
@@ -87,9 +88,40 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 	Precondition:
 	Postcondtion:
 */
-void MovieList::rentAVideo ()
+bool MovieList::rentAVideo (int givenID)
 {
+	//Initialize node
+	videoNodePtr previousNode;
 
+	//Check if list is empty
+	if (headNode == nullptr) 
+	{
+		cout << "No movies has been added yet. " << '\n';
+		return true;
+	}
+	
+	//Initiliaze variables
+	currentNode = headNode;
+	previousNode = nullptr;
+
+	//Look for the node to rented
+	while (currentNode != nullptr && currentNode->videoID != givenID)
+	{
+		previousNode = currentNode;
+		currentNode = currentNode->next;
+	}
+
+	//If found reduce the number of copies
+	if (currentNode != nullptr)
+	{
+		--currentNode->numberOfCopies;
+		cout << "Video ID " << currentNode->videoID << " has been rented successfully!" << '\n';
+		return true;
+	}
+	
+	//If node not found
+	cout << "Video ID " << givenID  << " is not found on the list" << '\n';
+	return false;
 }
 
 /**
@@ -97,8 +129,35 @@ void MovieList::rentAVideo ()
 	Precondition:
 	Postcondtion:
 */
-void MovieList::returnAVideo ()
+void MovieList::returnAVideo (int givenID)
 {
+	if (headNode == nullptr)
+	{
+		cout << "No movies has been added yet. " << '\n';
+		return;
+	}
+	
+	//Initiliaze variables
+	videoNodePtr previousNode = nullptr;
+	currentNode = headNode;
+
+	//Look for the video to be returned
+	while (currentNode != nullptr && currentNode->videoID != givenID)
+	{
+		previousNode = currentNode;
+		currentNode = currentNode->next;
+	}
+
+	//If found increase the number of copies
+	if (currentNode != nullptr)
+	{
+		++currentNode->numberOfCopies;
+		cout << "Video ID " << currentNode->videoID << " has been returned" << '\n';
+		return;
+	}
+
+	//If node not found
+	cout << "Video ID " << givenID << " is not found on the list" << '\n';
 
 }
 
@@ -163,7 +222,7 @@ void MovieList::displayVideos ()
 		while (currentNode != nullptr)
 		{
 			cout << currentNode->videoID << "\t\t" << setw(10) << currentNode->movieTitle;
-			cout << "\t\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
+			cout << "\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
 			currentNode = currentNode->next;
 		}
 		cin.get();
@@ -177,7 +236,6 @@ void MovieList::displayVideos ()
 */
 void MovieList::checkVideoAvailability (int givenVideoID)
 {
-
 	//check if the list is empty
 	if (headNode == nullptr)
 	{
@@ -213,6 +271,46 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 		}
 		cin.get();
 	}
-
 }
+  
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
+string MovieList::getTitleByID (int givenID)
+{
+	//Initialize string
+	string movieTitle = " ";
+	
+	//Check if empty 
+	if (headNode == nullptr)
+	{
+		movieTitle = "missing title - null headnode";
+		return movieTitle;
+	}
+
+	//Initiliaze variables
+	currentNode = headNode;
+	videoNodePtr previousNode = nullptr;
+
+	//Look for the node to rented
+	while (currentNode != nullptr && currentNode->videoID != givenID)
+	{
+		previousNode = currentNode;
+		currentNode = currentNode->next;
+	}
+
+	//If found reduce the number of copies
+	if (currentNode != nullptr)
+	{
+		movieTitle = currentNode->movieTitle;
+		return movieTitle;
+	}
+
+	//If node not found
+	movieTitle = "missing title - node missing";
+	return movieTitle;
+}
+
 

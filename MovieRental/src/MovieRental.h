@@ -3,6 +3,10 @@
 
 #include "MovieList.h"
 #include "CustomerList.h"
+#include <stack>	
+#include <unordered_map>
+
+using namespace std;
 
 class MovieRental
 {
@@ -10,6 +14,8 @@ class MovieRental
 		//Instance Variables
 		CustomerList customerList;
 		MovieList movieList;
+		stack<int> rentedVideoIDs;
+		unordered_map<int, stack<int>> rentedVideos;
 
 	public:
 		//Methods
@@ -22,7 +28,14 @@ class MovieRental
 		void addNewCustomer (Customer givenCustomer);
 		void showCustomerDetails ();
 		void listVideosRentedByCustomer ();
-		void showAllCustomers ();
+		int getCustomerID ();
+
+		void promptUser ();
+
+		//File Handling Methods
+		void writeCustomerRentToFile ();
+		void readCustomerRentFromFile ();
+		void testReadingFile ();
 };
 
 

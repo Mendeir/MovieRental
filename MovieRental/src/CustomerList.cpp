@@ -15,38 +15,13 @@ void CustomerList::addCustomer (Customer givenCustomer)
 	customerCollection.push_back(givenCustomer);
 }
 
-void CustomerList::showAllCustomer ()
-{
-	for (Customer customers : customerCollection)
-	{
-		cout << customers.getCustomerId() << '\n';
-		cout << customers.getCustomerName () << '\n';
-		cout << customers.getCustomerAddress () << '\n';
-	}
-
-	cin.get ();
-}
-
 /**
 	Description:
 	Precondition:
 	Postcondtion:
 */
-void showCustomerDetails ();
 
-/**
-	Description:
-	Precondition:
-	Postcondtion:
-*/
-void printCustomerList ();
-
-/**
-	Description:
-	Precondition:
-	Postcondtion:
-*/
-void CustomerList::searchCustomerId (int givenId)
+bool CustomerList::showCustomerDetails (int givenId)
 {
 	for (Customer customers : customerCollection)
 	{
@@ -54,12 +29,18 @@ void CustomerList::searchCustomerId (int givenId)
 		if (customers.getCustomerId() == givenId)
 		{
 			// IF THE GIVENCUSTOMER ID IS EQUAL TO GIVEN ID BY THE USER IT WILL GOING TO PRINT THE DETAILS
-			cout << customers.getCustomerId () << '\n';
-			cout << customers.getCustomerName () << '\n';
-			cout << customers.getCustomerAddress () << '\n';
-			return;
+			cout << "Name: "  << "\t\t" << customers.getCustomerName () << '\n';
+			cout << "Address: " << '\t' << customers.getCustomerAddress () << '\n';
+			return true;
 		}
 	}
 
 	cout << "Customer not found." << '\n';
+	return false;
 }
+
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
