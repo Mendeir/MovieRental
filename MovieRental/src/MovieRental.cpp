@@ -115,7 +115,13 @@ void MovieRental::returnVideo ()
 */
 void MovieRental::showVideoDetails ()
 {
-	movieList.showVideoDetails();
+	int givenVidID = 0;
+	cout << "\n";
+	cout << "Video ID: \t\t";
+	cin >> givenVidID;
+
+	
+	movieList.showVideoDetails(givenVidID);
 }
 
 /**
@@ -136,7 +142,8 @@ void MovieRental::displayAllVideos()
 void MovieRental::checkVideoAvailability()
 {
 	int givenVideoID = 0;
-	cout << "Video ID: ";
+	cout << "\n";
+	cout << "Video ID: \t\t";
 	cin >> givenVideoID;
 	movieList.checkVideoAvailability(givenVideoID);
 
