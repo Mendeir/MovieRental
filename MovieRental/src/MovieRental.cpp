@@ -15,9 +15,9 @@ using namespace std;
 	Precondition:
 	Postcondtion:
 */
-void MovieRental::newVideo (string title, string genre, string production, int copies)
+void MovieRental::newVideo (string title, string genre, string production, int copies, string fileName)
 {
-	movieList.newVideo(title, genre, production, copies);
+	movieList.newVideo(title, genre, production, copies, fileName);
 	cout << '\n';
 	promptUser ();
 }
