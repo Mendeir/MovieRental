@@ -26,7 +26,6 @@ MovieList::~MovieList ()
 		delete currentNode;
 		currentNode = tempNode;
 	}
-	cin.get();
 }
 
 
