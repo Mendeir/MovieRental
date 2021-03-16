@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 
+
 using namespace std;
 
 //Constructors and Destructors
@@ -178,8 +179,9 @@ void MovieList::returnAVideo (int givenID)
 	Precondition:
 	Postcondtion:
 */
-void MovieList::showVideoDetails ()
+void MovieList::showVideoDetails (int givenVidID)
 {
+	
 	{
 		// CHECK IF THE LIST IS EMPTY, IF NOT SHOW THE DETAILS
 		if (headNode == nullptr)
@@ -191,22 +193,32 @@ void MovieList::showVideoDetails ()
 
 		else
 		{
-			
+		
 			currentNode = headNode;
-
-			while (currentNode != nullptr)
+			//TRAVERSING EACH NODE TO FIND THE GIVEN VIDEO ID
+		
+			while (currentNode -> videoID != givenVidID && currentNode != nullptr )
 			{
-				cout << "\n";
+				tailNode = currentNode;
+				currentNode = currentNode->next;
+
+				if (currentNode == nullptr) {
+					cout << "Video ID is not on the list \n";
+				}
+				
+			}
 			
-				cout << "Video ID:\t\t" << currentNode->videoID << "\n";
+
+			if (givenVidID == currentNode->videoID )
+			{
+
 				cout << "Movie Title:\t\t" << currentNode->movieTitle << "\n";
 				cout << "Genre :\t\t\t" << currentNode->movieGenre << "\n";
 				cout << "Production :\t\t" << currentNode->movieProduction << "\n";
 				cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n";
 
-
-				currentNode = currentNode->next;
 			}
+	
 			cin.get();
 		}
 	}
@@ -220,6 +232,7 @@ void MovieList::showVideoDetails ()
 */
 void MovieList::displayVideos ()
 {
+
 	// check if the list is empty
 	if(headNode == nullptr)
 	{
@@ -248,39 +261,59 @@ void MovieList::displayVideos ()
 */
 void MovieList::checkVideoAvailability (int givenVideoID)
 {
-	//check if the list is empty
+
+	// CHECK IF THE LIST IS EMPTY, IF NOT SHOW THE DETAILS
 	if (headNode == nullptr)
 	{
 		cout << "No movie details to be displayed yet...\n";
 		cin.get();
-	}	
+	}
+	//SHOWING ALL THE DETAILS OF THE MOVIE
+
 	else
 	{
 
 		currentNode = headNode;
+		//TRAVERSING EACH NODE TO FIND THE GIVEN VIDEO ID
 
-		while (givenVideoID == currentNode->videoID)
+
+
+		while (currentNode->videoID != givenVideoID &&currentNode != nullptr)
 		{
-			cout << "\n";
+			tailNode = currentNode;
+			currentNode = currentNode->next;
+
+			if (currentNode == nullptr) {
+				cout << "Video ID is not on the list\n";
+			}
+
+		}
+
+
+		if (givenVideoID == currentNode -> videoID)
+		{
+
 			cout << "Movie Title:\t\t" << currentNode->movieTitle << "\n";
 			cout << "Genre :\t\t\t" << currentNode->movieGenre << "\n";
 			cout << "Production :\t\t" << currentNode->movieProduction << "\n";
 			cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n";
-			currentNode = currentNode->next;
-
-			if (currentNode->numberOfCopies == 0)
-			{
-				cout << "\n";
-				cout << "NOT AVAILABLE";
-			}
-			else
-			{
-				cout << "\n";
-				cout << "AVAILABLE";
-				currentNode = currentNode->next;
-			}
-
+			cout << "Availability: \t\t";
 		}
+
+
+
+		if (currentNode->numberOfCopies == 0)
+		{
+		
+			cout << "NOT AVAILABLE\n";
+		}
+		else
+		{
+			
+			cout << "AVAILABLE\n";
+		}
+		
+		
 		cin.get();
 	}
 }

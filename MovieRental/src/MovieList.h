@@ -36,7 +36,7 @@ class MovieList
 		void newVideo (string title, string genre, string production, int copies, string fileName);
 		bool rentAVideo (int givenID);
 		void returnAVideo (int givenID);
-		void showVideoDetails ();
+		void showVideoDetails (int givenVidID);
 		void displayVideos ();
 		void checkVideoAvailability (int givenVideoID);
 		void searchVideoID (int givenID);
