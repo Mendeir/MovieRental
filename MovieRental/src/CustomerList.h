@@ -16,6 +16,9 @@ class CustomerList
 		void addCustomer (Customer givenCustomer);
 		bool showCustomerDetails (int givenId);
 
+		//File Handling
+		void writeCustomerToFile ();
+		void readCustomerToFile ();
 };
 
 #endif

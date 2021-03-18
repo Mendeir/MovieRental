@@ -15,6 +15,7 @@ class Customer
 	public:
 		//Constructors and Destructor
 		Customer ();
+		Customer (int givenID, string givenName, string givenAddress);
 		//~Customer ();
 		
 
@@ -24,6 +25,7 @@ class Customer
 		int getCustomerId ();
 		string getCustomerName ();
 		string getCustomerAddress ();
+		void setCustomerId (int id);
 		void setCustomerName (string name);
 		void setCustomerAddress (string address);
 
