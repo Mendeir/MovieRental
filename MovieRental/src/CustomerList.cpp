@@ -60,57 +60,47 @@ void CustomerList::writeCustomerToFile ()
 	//Put vector value of Customer object into file
 	for (Customer customer : customerCollection)
 	{
-		customerOutStream << customer.getCustomerId () << ", "
-						  << customer.getCustomerName () << ", " 
+		customerOutStream << customer.getCustomerId () << ","
+						  << customer.getCustomerName () << "," 
 						  << customer.getCustomerAddress ()	<< '\n';
 	}
 
 	customerOutStream.close ();
 }
 
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void CustomerList::readCustomerToFile ()
 {
 	//Initialize variable
-	string fileLine = "";
+	string fileLine;
 	string filePath = "src/Customer.txt";
 	ifstream customerInStream;
 
-	customerInStream.open (filePath);
 	//Open file and check if successful
+	customerInStream.open (filePath);
 	if (customerInStream.fail ())
 		cout << filePath << ": Opening failed. \n";
 
 	//Put file values into vector
-	while (getline (customerInStream, fileLine)) 
+	while (getline (customerInStream, fileLine))
 	{
 		//Initialize variables
-		const int SPLIT_SIZE = 3;
+		istringstream fileStream (fileLine);
+		string lineElements;
+		vector<string> splitLine;
+
+		//The line is separated by comma with the following order
+		//customerID, customerName, customerAddress
+		while (getline (fileStream, lineElements, ','))
+			splitLine.push_back (lineElements);
 		
-		stringstream fileLineStream(fileLine);
-		string splitLine;
-		char delimeter = ',';
-		
-		string storeLine [SPLIT_SIZE];
-		int lineCounter = 0;
-
-		while (getline (fileLineStream, splitLine, delimeter))
-		{
-			cout << splitLine << '\n';
-			storeLine [lineCounter] = splitLine;
-			++lineCounter;
-		}
-		cout << "Debug: " << ":" << storeLine [0] << ":"  << storeLine [1] << ":"  << storeLine [2] << '\n';
-
-		//Initialize into proper variables
-		int customerId = stoi(storeLine [0]);
-		string customerName = storeLine [1];
-		string customerAddress = storeLine [2];
-
-		//Assign the proper variables to customer class and put into variables
-		Customer newFileCustomer;
-		newFileCustomer.setCustomerId (customerId);
-		newFileCustomer.setCustomerName (customerName);
-		newFileCustomer.setCustomerAddress (customerAddress);
-		customerCollection.push_back (newFileCustomer);
+		//Adding the customer to the vector
+		int customerId = stoi (splitLine [0]);
+		Customer newCustomer (customerId, splitLine [1], splitLine [2]);
+		customerCollection.push_back (newCustomer);
 	}
 }

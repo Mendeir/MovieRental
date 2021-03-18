@@ -15,6 +15,7 @@ class Customer
 	public:
 		//Constructors and Destructor
 		Customer ();
+		Customer (int givenID, string givenName, string givenAddress);
 		//~Customer ();
 		
 
