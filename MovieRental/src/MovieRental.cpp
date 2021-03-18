@@ -206,7 +206,7 @@ void MovieRental::listVideosRentedByCustomer ()
 		cout << videoIDsCopy.top () << "\t\t" << movieList.getTitleByID (videoIDsCopy.top ()) << '\n';
 		videoIDsCopy.pop ();
 	}
-
+		
 	promptUser ();
 }
 
@@ -233,7 +233,7 @@ int MovieRental::getCustomerID ()
 			cin.clear ();
 			cin.ignore (numeric_limits<streamsize>::max (), '\n');
 			cerr << "Invalid customer ID" << '\n';
-			continue;
+			continue;z
 		}
 		
 		return customerID;
@@ -244,6 +244,21 @@ void MovieRental::promptUser ()
 {
 	cout << "Press enter to continue ";
 	cin.get ();
+}
+
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
+void MovieRental::writeCustomerToFile ()
+{
+	customerList.writeCustomerToFile ();
+}
+
+void MovieRental::readCustomerToFile ()
+{
+	customerList.readCustomerToFile ();
 }
 
 /**
@@ -336,3 +351,5 @@ void MovieRental::readCustomerRentFromFile ()
 
 	//cout << "File read successful!" << '\n';
 }
+
+

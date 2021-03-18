@@ -24,6 +24,7 @@ class Customer
 		int getCustomerId ();
 		string getCustomerName ();
 		string getCustomerAddress ();
+		void setCustomerId (int id);
 		void setCustomerName (string name);
 		void setCustomerAddress (string address);
 

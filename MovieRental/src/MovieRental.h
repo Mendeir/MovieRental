@@ -33,6 +33,8 @@ class MovieRental
 		void promptUser ();
 
 		//File Handling Methods
+		void writeCustomerToFile ();
+		void readCustomerToFile ();
 		void writeCustomerRentToFile ();
 		void readCustomerRentFromFile ();
 		void testReadingFile ();

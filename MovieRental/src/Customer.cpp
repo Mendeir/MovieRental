@@ -33,6 +33,11 @@ string Customer::getCustomerAddress ()
 	return customerAddress;
 }
 
+void Customer::setCustomerId (int id)
+{
+	customerId = id;
+}
+
 void Customer::setCustomerName(string name)
 {
 	customerName = name;
