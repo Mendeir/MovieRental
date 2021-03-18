@@ -199,7 +199,7 @@ void MovieList::showVideoDetails (int givenVidID)
 		
 			while (currentNode -> videoID != givenVidID && currentNode != nullptr )
 			{
-				tailNode = currentNode;
+				tempNode = currentNode;
 				currentNode = currentNode->next;
 
 				if (currentNode == nullptr) {
@@ -280,7 +280,7 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 
 		while (currentNode->videoID != givenVideoID &&currentNode != nullptr)
 		{
-			tailNode = currentNode;
+			tempNode = currentNode;
 			currentNode = currentNode->next;
 
 			if (currentNode == nullptr) {
