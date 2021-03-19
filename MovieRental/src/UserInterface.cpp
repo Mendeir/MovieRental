@@ -26,7 +26,7 @@ void UserInterface::start ()
 {
 	movieRental.readCustomerToFile ();
 	movieRental.readCustomerRentFromFile ();
-
+	//movieRental.readMovieListFromFile();
 	while (true) 
 		mainMenu ();
 
@@ -184,6 +184,7 @@ void UserInterface::processCommandMainMenu (int command)
 			break;
 		
 		case 8:
+			movieRental.writeMovieListToFile();
 			movieRental.writeCustomerToFile ();
 			movieRental.writeCustomerRentToFile ();
 			exit (1);

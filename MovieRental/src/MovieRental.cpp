@@ -359,4 +359,13 @@ void MovieRental::readCustomerRentFromFile ()
 	//cout << "File read successful!" << '\n';
 }
 
+void MovieRental::writeMovieListToFile()
+{
+	movieList.writeMovieListToFile();
+}
+
+void MovieRental::readMovieListFromFile()
+{
+	movieList.readMovieListFromFile();
+}
 
