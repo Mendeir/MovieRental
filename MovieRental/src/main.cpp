@@ -1,8 +1,5 @@
 #include "UserInterface.h"
 
-
-
-
 int main () 
 {
 	UserInterface UI;
