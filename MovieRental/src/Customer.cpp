@@ -3,11 +3,16 @@
 
 using namespace std;
 
-//Constructor
+//***************************
+//*	     Constructor        *
+//***************************
 Customer::Customer (int givenID, string givenName, string givenAddress)
 {
+	const int DEFAULT_ID = 0;
+
+	//If given id is not from file, give generated customerID
 	++customerIdCounter;
-	if (customerIdCounter == givenID || givenID == 0) 
+	if (givenID == DEFAULT_ID)
 		customerId = customerIdCounter;
 	else
 		customerId = givenID;
@@ -20,13 +25,15 @@ Customer::Customer ()
 	:Customer (0, "Unkown", "Unkown")
 {}
 
-
+//Description: Responsible for the auto generation of the CustomerID starts with 0
 int Customer::customerIdCounter = 0;
-//~Customer::Customer () {}
 
-//Methods
 
-//Getters
+//***************************
+//*		   METHODS          *
+//***************************
+
+//Setters and Getters
 int Customer::getCustomerId()
 {
 	return customerId;
