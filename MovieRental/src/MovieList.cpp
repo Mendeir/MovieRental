@@ -30,9 +30,9 @@ MovieList::~MovieList ()
 }
 
 
-//-------------------------------
-//			 METHODS				
-//-------------------------------
+//***************************
+//*		   METHODS          *
+//***************************
 
 /**
 	Description:
@@ -63,7 +63,7 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 		newVideo->next = nullptr;
 
 		// if the movie detail is successfully added
-		cout << title << " has successfully added " << '\n';
+		cout << title << " has successfully added." << '\n';
 		cin.get();
 	}
 	else // inserting a movie details
@@ -90,22 +90,23 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 			newVideo->next = currentNode;
 		}
 		// if the movie detail is successfully added
-		cout << title << " has successfully added " << '\n';
+		cout << title << " has successfully added." << '\n';
 		cin.get();
 
 	}
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Traverses to the list and decrements numberOfCopies 
+				  if the givenId is in the list
+	Precondition: givenID is an integer and the list is not empty
+	Postcondtion: It decrements the numberOfCopies if ID is found and return true or 
+				  prompts the user if the list is empty or ID is not on the list and 
+				  return false
 */
 bool MovieList::rentAVideo (int givenID)
 {
-	//Initialize node
-	videoNodePtr previousNode;
-
 	//Check if list is empty
 	if (headNode == nullptr) 
 	{
@@ -115,16 +116,12 @@ bool MovieList::rentAVideo (int givenID)
 	
 	//Initiliaze variables
 	currentNode = headNode;
-	previousNode = nullptr;
 
 	//Look for the node to rented
 	while (currentNode != nullptr && currentNode->videoID != givenID)
-	{
-		previousNode = currentNode;
 		currentNode = currentNode->next;
-	}
 
-	//If found reduce the number of copies
+	//If found reduce the number of copies and return
 	if (currentNode != nullptr)
 	{
 		--currentNode->numberOfCopies;
@@ -138,12 +135,16 @@ bool MovieList::rentAVideo (int givenID)
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Traverses to the list and increments numberOfCopies
+				  if the givenId is in the list
+	Precondition: givenID is an integer and the list is not empty
+	Postcondtion: It increments the numberOfCopies if ID is found or prompts 
+				  the user if the list is empty or ID is not on the list
 */
 void MovieList::returnAVideo (int givenID)
 {
+	//Check if list is empty
 	if (headNode == nullptr)
 	{
 		cout << "No movies has been added yet. " << '\n';
@@ -151,16 +152,12 @@ void MovieList::returnAVideo (int givenID)
 	}
 	
 	//Initiliaze variables
-	videoNodePtr previousNode = nullptr;
 	currentNode = headNode;
 
 	//Look for the video to be returned
 	while (currentNode != nullptr && currentNode->videoID != givenID)
-	{
-		previousNode = currentNode;
 		currentNode = currentNode->next;
-	}
-
+	
 	//If found increase the number of copies
 	if (currentNode != nullptr)
 	{
@@ -169,9 +166,8 @@ void MovieList::returnAVideo (int givenID)
 		return;
 	}
 
-	//If node not found
+	//If video id not found
 	cout << "Video ID " << givenID << " is not found on the list" << '\n';
-
 }
 
 /**
@@ -317,11 +313,16 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 		cin.get();
 	}
 }
-  
+ 
+//****************************
+//*	 ADDITIONAL OPERATIONS   *
+//****************************
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Gives the movie title given an ID
+	Precondition: givenID is an integer and the list is not empty
+	Postcondtion: It returns the movieTitle in string type or returns
+				  the string that indicates the error
 */
 string MovieList::getTitleByID (int givenID)
 {
@@ -337,16 +338,12 @@ string MovieList::getTitleByID (int givenID)
 
 	//Initiliaze variables
 	currentNode = headNode;
-	videoNodePtr previousNode = nullptr;
 
-	//Look for the node to rented
+	//Look for the node to be displayed by title
 	while (currentNode != nullptr && currentNode->videoID != givenID)
-	{
-		previousNode = currentNode;
 		currentNode = currentNode->next;
-	}
 
-	//If found reduce the number of copies
+	//If found return the movie title
 	if (currentNode != nullptr)
 	{
 		movieTitle = currentNode->movieTitle;
@@ -357,6 +354,10 @@ string MovieList::getTitleByID (int givenID)
 	movieTitle = "missing title - node missing";
 	return movieTitle;
 }
+
+//***************************
+//*	    FILE HANDLING       *
+//***************************
 void MovieList::writeMovieListToFile()
 {
 	// Initialize Variable

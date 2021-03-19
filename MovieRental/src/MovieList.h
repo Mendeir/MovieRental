@@ -21,7 +21,7 @@ class MovieList
 			struct videoNode* next;
 		} *videoNodePtr;
 
-		// added node pointers
+		//Node Pointers
 		videoNodePtr headNode;
 		videoNodePtr currentNode;
 		videoNodePtr tempNode;
@@ -39,8 +39,11 @@ class MovieList
 		void showVideoDetails (int givenVidID);
 		void displayVideos ();
 		void checkVideoAvailability (int givenVideoID);
-		void searchVideoID (int givenID);
+
+		//Additional Operations
 		string getTitleByID (int givenID);
+
+		//File Handling
 		void writeMovieListToFile();
 		void readMovieListFromFile();
 };
