@@ -122,6 +122,8 @@ void MovieRental::showVideoDetails ()
 
 	
 	movieList.showVideoDetails(givenVidID);
+	promptUser();
+
 }
 
 /**
@@ -146,7 +148,7 @@ void MovieRental::checkVideoAvailability()
 	cout << "Video ID: \t\t";
 	cin >> givenVideoID;
 	movieList.checkVideoAvailability(givenVideoID);
-
+	promptUser();
 
 }
 
