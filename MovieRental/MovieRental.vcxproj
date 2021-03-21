@@ -154,6 +154,7 @@
     <ClInclude Include="src\MovieList.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="src\Customer.txt" />
     <Text Include="src\CustomerRent.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

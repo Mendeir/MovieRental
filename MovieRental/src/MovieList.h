@@ -24,16 +24,16 @@ class MovieList
 		// added node pointers
 		videoNodePtr headNode;
 		videoNodePtr currentNode;
-		videoNodePtr tailNode;
+		videoNodePtr tempNode;
 	public:
 		static int movieCounter;
 
 		//Constructors
 		MovieList ();
-		//~MovieList ();
+		~MovieList ();
 
 		//Methods
-		void newVideo (string title, string genre, string production, int copies);
+		void newVideo (string title, string genre, string production, int copies, string fileName);
 		bool rentAVideo (int givenID);
 		void returnAVideo (int givenID);
 		void showVideoDetails (int givenVidID);
@@ -41,6 +41,8 @@ class MovieList
 		void checkVideoAvailability (int givenVideoID);
 		void searchVideoID (int givenID);
 		string getTitleByID (int givenID);
+		void writeMovieListToFile();
+		void readMovieListFromFile();
 };
 
 #endif

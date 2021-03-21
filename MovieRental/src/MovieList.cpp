@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <fstream>
 
 
 using namespace std;
@@ -11,12 +12,22 @@ MovieList::MovieList ()
 {
 	headNode = nullptr;
 	currentNode = nullptr;
-	tailNode = nullptr;
+	tempNode = nullptr;
 }
 
 int MovieList::movieCounter = 0;
 
-//~MovieList::MovieList () { }
+MovieList::~MovieList () 
+{
+	// Delete movieList if exist
+	currentNode = headNode;
+	while (currentNode != nullptr)
+	{
+		tempNode = currentNode->next;
+		delete currentNode;
+		currentNode = tempNode;
+	}
+}
 
 
 //-------------------------------
@@ -28,8 +39,8 @@ int MovieList::movieCounter = 0;
 	Precondition:
 	Postcondtion:
 */
-void MovieList::newVideo (string title, string genre, string production, int copies)
-{
+void MovieList::newVideo (string title, string genre, string production, int copies, string fileName)
+{	
 	// initialization for node
 	videoNodePtr newVideo = new videoNode();
 	videoNodePtr tempNode;
@@ -41,6 +52,7 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 	newVideo->movieGenre = genre;
 	newVideo->movieProduction = production;
 	newVideo->numberOfCopies = copies;
+	newVideo->movieImageFileName = fileName;
 	newVideo->next = nullptr;
 
 	// if movie list is created already
@@ -188,8 +200,7 @@ void MovieList::showVideoDetails (int givenVidID)
 		
 			while ( currentNode != nullptr && currentNode->videoID != givenVidID)
 			{
-				
-				tailNode = currentNode;
+				tempNode = currentNode;
 				currentNode = currentNode->next;
 				
 			}
@@ -268,10 +279,8 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 
 		while (currentNode != nullptr && currentNode->videoID != givenVideoID)
 		{
-
-			tailNode = currentNode;
+			tempNode = currentNode;
 			currentNode = currentNode->next;
-
 		}
 		if (currentNode == nullptr)
 		{
@@ -345,5 +354,47 @@ string MovieList::getTitleByID (int givenID)
 	movieTitle = "missing title - node missing";
 	return movieTitle;
 }
+void MovieList::writeMovieListToFile()
+{
+	// Initialize Variable
+	string filePath = "src/Video.txt";
+	ofstream videoOutStream;
 
+	videoOutStream.open(filePath);
+	// Check if file was successful
+	if (videoOutStream.fail())
+		cout << filePath << ": Opening failed. \n";
 
+	currentNode = headNode;
+	while (currentNode != nullptr)
+	{
+		videoOutStream << currentNode->videoID;
+		videoOutStream << currentNode->movieTitle;
+		videoOutStream << currentNode->movieGenre;
+		videoOutStream << currentNode->movieProduction;
+		
+	}
+	cin.get();
+}
+void MovieList::readMovieListFromFile()
+{
+	string filePath = "src/Video.txt";
+	ifstream videoIfStream;
+
+	videoIfStream.open(filePath);
+	//Check for error
+	if (videoIfStream.fail())
+		cout << filePath << "Opening Failed. \n";
+
+	currentNode = headNode;
+	while (currentNode != nullptr)
+	{
+		videoIfStream >> currentNode->videoID;
+		videoIfStream >> currentNode->movieTitle;
+		videoIfStream >> currentNode->movieGenre;
+		videoIfStream >> currentNode->movieProduction;
+
+	}
+	cin.get();
+
+}

@@ -15,9 +15,9 @@ using namespace std;
 	Precondition:
 	Postcondtion:
 */
-void MovieRental::newVideo (string title, string genre, string production, int copies)
+void MovieRental::newVideo (string title, string genre, string production, int copies, string fileName)
 {
-	movieList.newVideo(title, genre, production, copies);
+	movieList.newVideo(title, genre, production, copies, fileName);
 	cout << '\n';
 	promptUser ();
 }
@@ -215,7 +215,7 @@ void MovieRental::listVideosRentedByCustomer ()
 		cout << videoIDsCopy.top () << "\t\t" << movieList.getTitleByID (videoIDsCopy.top ()) << '\n';
 		videoIDsCopy.pop ();
 	}
-
+		
 	promptUser ();
 }
 
@@ -253,6 +253,21 @@ void MovieRental::promptUser ()
 {
 	cout << "Press enter to continue ";
 	cin.get ();
+}
+
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
+void MovieRental::writeCustomerToFile ()
+{
+	customerList.writeCustomerToFile ();
+}
+
+void MovieRental::readCustomerToFile ()
+{
+	customerList.readCustomerToFile ();
 }
 
 /**
@@ -345,3 +360,5 @@ void MovieRental::readCustomerRentFromFile ()
 
 	//cout << "File read successful!" << '\n';
 }
+
+

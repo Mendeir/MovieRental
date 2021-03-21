@@ -19,7 +19,7 @@ class MovieRental
 
 	public:
 		//Methods
-		void newVideo (string title, string genre, string production, int copies);
+		void newVideo (string title, string genre, string production, int copies, string fileName);
 		void rentAVideo ();
 		void returnVideo ();
 		void showVideoDetails ();
@@ -33,6 +33,8 @@ class MovieRental
 		void promptUser ();
 
 		//File Handling Methods
+		void writeCustomerToFile ();
+		void readCustomerToFile ();
 		void writeCustomerRentToFile ();
 		void readCustomerRentFromFile ();
 		void testReadingFile ();

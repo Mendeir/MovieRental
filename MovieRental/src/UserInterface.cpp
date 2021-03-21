@@ -1,6 +1,8 @@
 #include "UserInterface.h"
 #include <iostream>
 #include <string>
+#include <limits>
+
 using namespace std;
 
 //Methods
@@ -22,6 +24,7 @@ void UserInterface::clear ()
 */
 void UserInterface::start () 
 {
+	movieRental.readCustomerToFile ();
 	movieRental.readCustomerRentFromFile ();
 
 	while (true) 
@@ -116,12 +119,13 @@ void UserInterface::processCommandMainMenu (int command)
 			string genre;
 			string production;
 			int numCopies;
+			string userFile;
 			MovieList movieItem;
 
 			cout << "New Video" << '\n';
 			cout << "Video ID: " << movieItem.movieCounter + 1 << '\n';
 
-			cin.ignore(32767,'\n');
+			cin.ignore(numeric_limits<streamsize>::max (), '\n');
 			cout << "Movie Title: ";
 			getline(cin, title);
 
@@ -133,7 +137,11 @@ void UserInterface::processCommandMainMenu (int command)
 			
 			cout << "Numbers of copies: ";
 			cin >> numCopies;
-			movieRental.newVideo(title, genre, production, numCopies);
+
+			cin.ignore (numeric_limits<streamsize>::max (), '\n');
+			cout << "File Name: ";
+			getline(cin, userFile);
+			movieRental.newVideo(title, genre, production, numCopies, userFile);
 			break;
 		}
 			
@@ -176,6 +184,7 @@ void UserInterface::processCommandMainMenu (int command)
 			break;
 		
 		case 8:
+			movieRental.writeCustomerToFile ();
 			movieRental.writeCustomerRentToFile ();
 			exit (1);
 			break;
@@ -206,11 +215,12 @@ void UserInterface::processCustomerMaintenance (int command)
 
 			cout << "Customer ID: " << newCustomer.getCustomerId() << '\n';
 
+			cin.ignore(32767, '\n');
 			cout << "Name: ";
-			cin >> userName;
+			getline(cin, userName);
 			newCustomer.setCustomerName(userName);
 			cout << "Address: ";
-			cin >> userAddress;
+			getline(cin, userAddress);
 			newCustomer.setCustomerAddress(userAddress);
 			movieRental.addNewCustomer(newCustomer);
 			cin.get ();
