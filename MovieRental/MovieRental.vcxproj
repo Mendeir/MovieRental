@@ -156,6 +156,7 @@
   <ItemGroup>
     <Text Include="src\Customer.txt" />
     <Text Include="src\CustomerRent.txt" />
+    <Text Include="src\Movies.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

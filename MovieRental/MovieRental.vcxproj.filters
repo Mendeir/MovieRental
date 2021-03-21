@@ -54,5 +54,6 @@
   <ItemGroup>
     <Text Include="src\CustomerRent.txt" />
     <Text Include="src\Customer.txt" />
+    <Text Include="src\Movies.txt" />
   </ItemGroup>
 </Project>

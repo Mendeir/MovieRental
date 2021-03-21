@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <vector>
+#include <sstream>
 #include <fstream>
 
 
@@ -63,8 +65,8 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 		newVideo->next = nullptr;
 
 		// if the movie detail is successfully added
-		cout << title << " has successfully added." << '\n';
-		cin.get();
+		cout << title << " has successfully added " << '\n';
+		//cin.get();
 	}
 	else // inserting a movie details
 	{
@@ -90,9 +92,8 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 			newVideo->next = currentNode;
 		}
 		// if the movie detail is successfully added
-		cout << title << " has successfully added." << '\n';
-		cin.get();
-
+		cout << title << " has successfully added " << '\n';
+		//cin.get();
 	}
 }
 
@@ -358,7 +359,7 @@ string MovieList::getTitleByID (int givenID)
 void MovieList::writeMovieListToFile()
 {
 	// Initialize Variable
-	string filePath = "src/Video.txt";
+	string filePath = "src/Movies.txt";
 	ofstream videoOutStream;
 
 	videoOutStream.open(filePath);
@@ -369,33 +370,52 @@ void MovieList::writeMovieListToFile()
 	currentNode = headNode;
 	while (currentNode != nullptr)
 	{
-		videoOutStream << currentNode->videoID;
-		videoOutStream << currentNode->movieTitle;
-		videoOutStream << currentNode->movieGenre;
-		videoOutStream << currentNode->movieProduction;
-		
+		videoOutStream << currentNode->videoID << ","
+			<< currentNode->movieTitle << ","
+			<< currentNode->movieGenre << ","
+			<< currentNode->movieProduction << ","
+			<< currentNode->numberOfCopies << ","
+			<< currentNode->movieImageFileName << "\n";
+						
+		currentNode = currentNode->next;
 	}
-	cin.get();
+	videoOutStream.close();
 }
 void MovieList::readMovieListFromFile()
 {
-	string filePath = "src/Video.txt";
+	string fileLine;
+	string filePath = "src/Movies.txt";
 	ifstream videoIfStream;
 
 	videoIfStream.open(filePath);
 	//Check for error
 	if (videoIfStream.fail())
 		cout << filePath << "Opening Failed. \n";
-
-	currentNode = headNode;
-	while (currentNode != nullptr)
+	
+	while (getline(videoIfStream, fileLine))
 	{
-		videoIfStream >> currentNode->videoID;
-		videoIfStream >> currentNode->movieTitle;
-		videoIfStream >> currentNode->movieGenre;
-		videoIfStream >> currentNode->movieProduction;
+		// initializing variables
+		istringstream fileStream(fileLine);
+		string lineElements;
+		int readId;
+		string readTitle;
+		string readGenre;
+		string readProduction;
+		int readCopies;
+		string readFilename;
+		vector <string> splitLine;
+
+		while (getline(fileStream, lineElements, ','))
+			splitLine.push_back(lineElements);
+		
+		readTitle = splitLine[1];
+		readGenre = splitLine[2];
+		readProduction = splitLine[3];
+		readCopies = stoi(splitLine[4]);
+		readFilename = splitLine[5];
+
+		newVideo(readTitle, readGenre, readProduction, readCopies, readFilename);
 
 	}
-	cin.get();
-
 }
+
