@@ -6,7 +6,9 @@
 
 using namespace std;
 
-//Methods
+//***************************
+//*		   METHODS          *
+//***************************
 /**
 	Description:
 	Precondition:
@@ -22,7 +24,6 @@ void CustomerList::addCustomer (Customer givenCustomer)
 	Precondition:
 	Postcondtion:
 */
-
 bool CustomerList::showCustomerDetails (int givenId)
 {
 	for (Customer customers : customerCollection)
@@ -41,10 +42,16 @@ bool CustomerList::showCustomerDetails (int givenId)
 	return false;
 }
 
+//***************************
+//*     FILE HANDLING       *
+//***************************
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Adds the contents of the vector into the file.
+	Precondition: Vector to be processed is a Customer Object.
+	Postcondtion: The vector contents is written in the file following the format
+				  customerId,customerName,customerAddress with the file name decided by 
+				  the filePath.
 */
 void CustomerList::writeCustomerToFile ()
 {
@@ -69,13 +76,16 @@ void CustomerList::writeCustomerToFile ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Reads the file and puts it in the vector of Customer object.
+	Precondition: filePath is an existing file and vectors is existing
+				  and initialized.
+	Postcondtion: The file contents is created into a Custoemr Object and 
+				  inserted in the vector of Customer.
 */
 void CustomerList::readCustomerToFile ()
 {
-	//Initialize variable
+	//Initialize variables
 	string fileLine;
 	string filePath = "src/Customer.txt";
 	ifstream customerInStream;
@@ -93,12 +103,12 @@ void CustomerList::readCustomerToFile ()
 		string lineElements;
 		vector<string> splitLine;
 
-		//The line is separated by comma with the following order
-		//customerID, customerName, customerAddress
+		//Inserts a single line in the file into the stream
+		//and splits the line through commma and inserts it into vector
 		while (getline (fileStream, lineElements, ','))
 			splitLine.push_back (lineElements);
 		
-		//Adding the customer to the vector
+		//Creates a Customer object and adding it to the vector
 		int customerId = stoi (splitLine [0]);
 		Customer newCustomer (customerId, splitLine [1], splitLine [2]);
 		customerCollection.push_back (newCustomer);

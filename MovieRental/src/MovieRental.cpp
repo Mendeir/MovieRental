@@ -23,9 +23,14 @@ void MovieRental::newVideo (string title, string genre, string production, int c
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Gets the customerID first and asks the user on what videos will the 
+				  customer rent which is then inserted into the unordered_map with the
+				  customerID as the key and the movieID's as the values.
+	Precondition: The stack for the video id values and the map for the rented videos 
+				  should exists. givenCustomerID should also exist from the list and 
+				  the videos to be rented should also exist. 
+	Postcondtion: The input given by the user is inserted in the map.
 */
 void MovieRental::rentAVideo ()
 {
@@ -33,6 +38,7 @@ void MovieRental::rentAVideo ()
 	char choice;
 	int givenCustomerID = getCustomerID ();
 
+	//If the customerID is not found on the list end method and prompt user
 	if (!customerList.showCustomerDetails (givenCustomerID))
 	{
 		promptUser ();
@@ -44,22 +50,24 @@ void MovieRental::rentAVideo ()
 	//Collect video ID's to be rented
 	while (true)
 	{
+		//Initialize variable and prompt the user for ID
 		int givenVideoID = 0;
 		cout << "Enter the video ID to be rented: ";
 		cin >> givenVideoID;
 
-		//Reduce number of copies and put videoID on stack
+		//Reduce number of copies and put videoID on stack if
+		//the given movie is on the linked list
 		if (movieList.rentAVideo (givenVideoID)) 
 			rentedVideoIDs.push (givenVideoID);
 
 		//Ask user if continue
-		cout << "Rent another video? (Y/N): ";
+		cout << "Input Y or y to continue renting a movie: ";
 		cin >> choice;
 
 		cout << '\n';
 
 		//Terminating statement
-		if (choice == 'N')
+		if (choice != 'y' && choice != 'Y')
 			break;
 	}
 
@@ -69,9 +77,12 @@ void MovieRental::rentAVideo ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Gets the customerID that will return the videos in which the stack
+				  will be emptied and the map will be then deleted for the said customer.
+	Precondition: The given customerID must exist within the list and the customer has atleast
+				  rented 1 videos meaning that a key and value pair must exist within the map.
+	Postcondtion: The key and value pair must not exist within the map.
 */
 void MovieRental::returnVideo ()
 {
@@ -178,15 +189,19 @@ void MovieRental::showCustomerDetails ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Gets the customerID and display the title of the movies 
+				  rented by the user.
+	Precondition: The given customerID must exist within the list and the customer has atleast
+				  rented 1 videos meaning that a key and value pair must exist within the map.
+	Postcondtion: The videos rented must be displayed on the screen.
 */
 void MovieRental::listVideosRentedByCustomer ()
 {
 	//Initialize variables
 	int givenCustomerID = getCustomerID ();
 
+	//If the customerID is not found on the list end method and prompt user
 	if (!customerList.showCustomerDetails (givenCustomerID))
 	{
 		promptUser ();
@@ -203,7 +218,7 @@ void MovieRental::listVideosRentedByCustomer ()
 		return;
 	}
 
-	//Make a copy of the customer's stack
+	//Make a copy of the customer's stack so that the original stack will not be empty
 	stack<int> videoIDsCopy = rentedVideos.at (givenCustomerID);
 
 	//List videos rented by customer
