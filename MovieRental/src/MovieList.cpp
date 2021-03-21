@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <vector>
+#include <sstream>
 #include <fstream>
 
 
@@ -360,7 +362,7 @@ string MovieList::getTitleByID (int givenID)
 void MovieList::writeMovieListToFile()
 {
 	// Initialize Variable
-	string filePath = "src/Video.txt";
+	string filePath = "src/Movies.txt";
 	ofstream videoOutStream;
 
 	videoOutStream.open(filePath);
@@ -371,33 +373,48 @@ void MovieList::writeMovieListToFile()
 	currentNode = headNode;
 	while (currentNode != nullptr)
 	{
-		videoOutStream << currentNode->videoID;
-		videoOutStream << currentNode->movieTitle;
-		videoOutStream << currentNode->movieGenre;
-		videoOutStream << currentNode->movieProduction;
-		
+		videoOutStream	<< currentNode->videoID << ","
+						<< currentNode->movieTitle << ","
+						<< currentNode->movieGenre << ","
+						<< currentNode->movieProduction << '\n';
+		currentNode = currentNode->next;
 	}
-	cin.get();
+	videoOutStream.close();
 }
 void MovieList::readMovieListFromFile()
 {
-	string filePath = "src/Video.txt";
+	string fileLine;
+	string filePath = "src/Movies.txt";
 	ifstream videoIfStream;
 
 	videoIfStream.open(filePath);
 	//Check for error
 	if (videoIfStream.fail())
 		cout << filePath << "Opening Failed. \n";
-
-	currentNode = headNode;
-	while (currentNode != nullptr)
+	
+	while (getline(videoIfStream, fileLine))
 	{
-		videoIfStream >> currentNode->videoID;
-		videoIfStream >> currentNode->movieTitle;
-		videoIfStream >> currentNode->movieGenre;
-		videoIfStream >> currentNode->movieProduction;
+		// initializing variables
+		istringstream fileStream(fileLine);
+		string lineElements;
+		vector <string> splitLine;
+
+		while (getline(fileStream, lineElements, ','))
+			splitLine.push_back(lineElements);
+		
 
 	}
-	cin.get();
-
 }
+
+/*
+currentNode = headNode;
+	while (currentNode != nullptr)
+	{
+		videoIfStream >> currentNode->videoID
+					  >> currentNode->movieTitle
+					  >> currentNode->movieGenre
+					  >> currentNode->movieProduction;
+		currentNode = currentNode->next;
+	}
+
+*/

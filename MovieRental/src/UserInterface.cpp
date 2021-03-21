@@ -26,7 +26,7 @@ void UserInterface::start ()
 {
 	movieRental.readCustomerToFile ();
 	movieRental.readCustomerRentFromFile ();
-	//movieRental.readMovieListFromFile();
+	movieRental.readMovieListFromFile();
 	while (true) 
 		mainMenu ();
 
