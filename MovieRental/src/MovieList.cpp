@@ -183,6 +183,7 @@ void MovieList::showVideoDetails (int givenVidID)
 {
 	
 	{
+		
 		// CHECK IF THE LIST IS EMPTY, IF NOT SHOW THE DETAILS
 		if (headNode == nullptr)
 		{
@@ -197,28 +198,28 @@ void MovieList::showVideoDetails (int givenVidID)
 			currentNode = headNode;
 			//TRAVERSING EACH NODE TO FIND THE GIVEN VIDEO ID
 		
-			while (currentNode -> videoID != givenVidID && currentNode != nullptr )
+			while ( currentNode != nullptr && currentNode->videoID != givenVidID)
 			{
 				tempNode = currentNode;
 				currentNode = currentNode->next;
-
-				if (currentNode == nullptr) {
-					cout << "Video ID is not on the list \n";
-				}
 				
 			}
-			
-
-			if (givenVidID == currentNode->videoID )
+			if (currentNode  == nullptr)
+			{
+				cout << "NO MOVIE DETAILS FOUND\n\n";
+				return;
+			 }
+		
+			if (givenVidID == currentNode->videoID)
 			{
 
 				cout << "Movie Title:\t\t" << currentNode->movieTitle << "\n";
 				cout << "Genre :\t\t\t" << currentNode->movieGenre << "\n";
 				cout << "Production :\t\t" << currentNode->movieProduction << "\n";
-				cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n";
+				cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n\n";
 
 			}
-	
+			
 			cin.get();
 		}
 	}
@@ -261,7 +262,7 @@ void MovieList::displayVideos ()
 */
 void MovieList::checkVideoAvailability (int givenVideoID)
 {
-
+	
 	// CHECK IF THE LIST IS EMPTY, IF NOT SHOW THE DETAILS
 	if (headNode == nullptr)
 	{
@@ -276,19 +277,16 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 		currentNode = headNode;
 		//TRAVERSING EACH NODE TO FIND THE GIVEN VIDEO ID
 
-
-
-		while (currentNode->videoID != givenVideoID &&currentNode != nullptr)
+		while (currentNode != nullptr && currentNode->videoID != givenVideoID)
 		{
 			tempNode = currentNode;
 			currentNode = currentNode->next;
-
-			if (currentNode == nullptr) {
-				cout << "Video ID is not on the list\n";
-			}
-
 		}
-
+		if (currentNode == nullptr)
+		{
+			cout << "No movies has been added yet. \n";
+			return;
+		}
 
 		if (givenVideoID == currentNode -> videoID)
 		{
@@ -299,18 +297,17 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 			cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n";
 			cout << "Availability: \t\t";
 		}
-
-
+	
 
 		if (currentNode->numberOfCopies == 0)
 		{
 		
-			cout << "NOT AVAILABLE\n";
+			cout << "NOT AVAILABLE\n\n";
 		}
 		else
 		{
 			
-			cout << "AVAILABLE\n";
+			cout << "AVAILABLE\n\n";
 		}
 		
 		
