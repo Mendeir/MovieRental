@@ -16,9 +16,7 @@ class Customer
 		//Constructors and Destructor
 		Customer ();
 		Customer (int givenID, string givenName, string givenAddress);
-		//~Customer ();
 		
-
 		static int customerIdCounter;
 		
 		//Getters and Setters
