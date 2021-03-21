@@ -12,13 +12,13 @@ class MovieList
 		typedef struct videoNode
 		{
 			//Elements of the linked list
-			int videoID;
+			int videoID = 0;
 			string movieTitle;
 			string movieGenre;
 			string movieProduction;
-			int numberOfCopies;
+			int numberOfCopies = 0;
 			string movieImageFileName;
-			struct videoNode* next;
+			struct videoNode* next = nullptr;
 		} *videoNodePtr;
 
 		//Node Pointers
