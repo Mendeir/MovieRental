@@ -66,7 +66,7 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 
 		// if the movie detail is successfully added
 		cout << title << " has successfully added " << '\n';
-		cin.get();
+		//cin.get();
 	}
 	else // inserting a movie details
 	{
@@ -93,7 +93,7 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 		}
 		// if the movie detail is successfully added
 		cout << title << " has successfully added " << '\n';
-		cin.get();
+		//cin.get();
 
 	}
 }
@@ -373,10 +373,13 @@ void MovieList::writeMovieListToFile()
 	currentNode = headNode;
 	while (currentNode != nullptr)
 	{
-		videoOutStream	<< currentNode->videoID << ","
-						<< currentNode->movieTitle << ","
-						<< currentNode->movieGenre << ","
-						<< currentNode->movieProduction << '\n';
+		videoOutStream << currentNode->videoID << ","
+			<< currentNode->movieTitle << ","
+			<< currentNode->movieGenre << ","
+			<< currentNode->movieProduction << ","
+			<< currentNode->numberOfCopies << ","
+			<< currentNode->movieImageFileName << "\n";
+						
 		currentNode = currentNode->next;
 	}
 	videoOutStream.close();
@@ -397,24 +400,25 @@ void MovieList::readMovieListFromFile()
 		// initializing variables
 		istringstream fileStream(fileLine);
 		string lineElements;
+		int readId;
+		string readTitle;
+		string readGenre;
+		string readProduction;
+		int readCopies;
+		string readFilename;
 		vector <string> splitLine;
 
 		while (getline(fileStream, lineElements, ','))
 			splitLine.push_back(lineElements);
 		
+		readTitle = splitLine[1];
+		readGenre = splitLine[2];
+		readProduction = splitLine[3];
+		readCopies = stoi(splitLine[4]);
+		readFilename = splitLine[5];
+
+		newVideo(readTitle, readGenre, readProduction, readCopies, readFilename);
 
 	}
 }
 
-/*
-currentNode = headNode;
-	while (currentNode != nullptr)
-	{
-		videoIfStream >> currentNode->videoID
-					  >> currentNode->movieTitle
-					  >> currentNode->movieGenre
-					  >> currentNode->movieProduction;
-		currentNode = currentNode->next;
-	}
-
-*/

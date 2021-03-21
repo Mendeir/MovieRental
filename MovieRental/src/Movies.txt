@@ -1,1 +1,2 @@
-1,sada,dasd,asd
+1,dave,action,marvels,10,adef.txt
+2,avengers,action,marvels',10,adef.txt
