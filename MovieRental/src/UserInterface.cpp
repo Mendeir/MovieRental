@@ -5,11 +5,14 @@
 
 using namespace std;
 
-//Methods
+//***************************
+//*		   METHODS          *
+//***************************
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Clears the whole screen
+	Precondition: N/A
+	Postcondtion: The screen must be cleared
 */
 
 void UserInterface::clear ()
@@ -18,24 +21,28 @@ void UserInterface::clear ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Function to be called in the main program. Indicates the start of the program
+	Precondition: N/A
+	Postcondtion: File handling must be called successfully and the mainMenu on loop
 */
+
 void UserInterface::start () 
 {
 	movieRental.readCustomerToFile ();
 	movieRental.readCustomerRentFromFile ();
 	movieRental.readMovieListFromFile();
+
 	while (true) 
 		mainMenu ();
 
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Display the menu choices. It also gets the user input and processes it after
+	Precondition: N/A
+	Postcondtion: Display all the possible choices and be able to get the user command and process it
 */
 void UserInterface::mainMenu () 
 {
@@ -55,7 +62,9 @@ void UserInterface::mainMenu ()
 	clear ();
 }
 
-//Input Methods
+//**************************
+//*	    INPUT METHODS      *
+//**************************
 /**
 	Description:
 	Precondition:
@@ -72,7 +81,9 @@ int UserInterface::getUserCommand ()
 	return command;
 }
 
-//Main Menu Methods
+//**************************
+//*	  MAIN MENU METHODS    *
+//**************************
 /**
 	Description:
 	Precondition:
@@ -100,13 +111,14 @@ void UserInterface::customerMaintenanceSubMenu ()
 	cout << "[3] List of Videos Rented by a Customer" << "\n\n";
 }
 
-
+//***************************
+//*	  PROCESSING METHODS    *
+//***************************
 /**
 	Description:
 	Precondition:
 	Postcondtion:
 */
-//Processing Methods
 void UserInterface::processCommandMainMenu (int command) 
 {
 	clear ();
