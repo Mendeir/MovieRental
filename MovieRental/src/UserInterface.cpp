@@ -33,6 +33,8 @@ void UserInterface::start ()
 	movieRental.readCustomerRentFromFile ();
 	movieRental.readMovieListFromFile();
 
+	clear();
+
 	while (true) 
 		mainMenu ();
 
