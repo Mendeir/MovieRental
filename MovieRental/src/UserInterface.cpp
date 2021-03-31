@@ -68,28 +68,43 @@ void UserInterface::mainMenu ()
 //*	    INPUT METHODS      *
 //**************************
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Gets the user command with error checking
+	Precondition: N/A
+	Postcondtion: The command being return must be an integer
 */
 int UserInterface::getUserCommand ()
 {
 	int command = 0;
 
 	//Prompt User
-	cout << "Enter command: ";
-	cin >> command;
+	while (true)
+	{
+		cout << "Enter command: ";
+		cin >> command;
 
-	return command;
+		//Value must be a positive integer
+		if (cin.fail ())
+		{
+			cin.clear ();
+			cin.ignore (numeric_limits<streamsize>::max (), '\n');
+			cerr << "Invalid command." << '\n';
+			continue;
+		}
+
+		return command;
+	}
 }
 
 //**************************
 //*	  MAIN MENU METHODS    *
 //**************************
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Displays the Customer Maintenance and the submenu. Also Gets the user command for the 
+				  submenu and processes it.
+	Precondition: customerMaintenanceSubMenu, processCustomerMaintenance, getUserCommand must exists.
+	Postcondtion: Be able to display customerMaintenanceSubMenu and get the user input and be able to process it.
 */
 void UserInterface::customerMaintenance ()
 {
@@ -102,9 +117,10 @@ void UserInterface::customerMaintenance ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Displays the choices of the user in the customerMaintenance
+	Precondition: N/A
+	Postcondtion: Must be able to display the right choices of the user
 */
 void UserInterface::customerMaintenanceSubMenu ()
 {
@@ -117,9 +133,11 @@ void UserInterface::customerMaintenanceSubMenu ()
 //*	  PROCESSING METHODS    *
 //***************************
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Processes the command given by the user and calls the function that is
+				  responsible for the command.
+	Precondition: The command given must be an integer and the function responsible exists.
+	Postcondtion: Be able to display and call the right function
 */
 void UserInterface::processCommandMainMenu (int command) 
 {
@@ -231,9 +249,11 @@ void UserInterface::processCommandMainMenu (int command)
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Processes the command given by the user and calls the function that is
+				  responsible for the command.
+	Precondition: The command given must be an integer and the function responsible exists.
+	Postcondtion: Be able to display and call the right function
 */
 void UserInterface::processCustomerMaintenance (int command)
 {

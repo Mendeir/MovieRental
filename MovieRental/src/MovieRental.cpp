@@ -51,9 +51,8 @@ void MovieRental::rentAVideo ()
 	while (true)
 	{
 		//Initialize variable and prompt the user for ID
-		int givenVideoID = 0;
-		cout << "Enter the video ID to be rented: ";
-		cin >> givenVideoID;
+		int givenVideoID = getVideoID ();
+		movieList.checkVideoAvailability (givenVideoID);
 
 		//Reduce number of copies and put videoID on stack if
 		//the given movie is on the linked list
@@ -86,8 +85,7 @@ void MovieRental::rentAVideo ()
 */
 void MovieRental::returnVideo ()
 {
-	//Initialize variables
-	int givenVideoID = 0;
+	//Initialize variable
 	int givenCustomerID = getCustomerID ();;
 
 	if (!customerList.showCustomerDetails (givenCustomerID))
@@ -126,12 +124,7 @@ void MovieRental::returnVideo ()
 */
 void MovieRental::showVideoDetails ()
 {
-	int givenVidID = 0;
-	cout << "\n";
-	cout << "Video ID: \t\t";
-	cin >> givenVidID;
-
-	
+	int givenVidID = getVideoID ();
 	movieList.showVideoDetails(givenVidID);
 	promptUser();
 
@@ -154,10 +147,7 @@ void MovieRental::displayAllVideos()
 */
 void MovieRental::checkVideoAvailability()
 {
-	int givenVideoID = 0;
-	cout << "\n";
-	cout << "Video ID: \t\t";
-	cin >> givenVideoID;
+	int givenVideoID = getVideoID ();
 	movieList.checkVideoAvailability(givenVideoID);
 	promptUser();
 
@@ -234,11 +224,35 @@ void MovieRental::listVideosRentedByCustomer ()
 	promptUser ();
 }
 
+int MovieRental::getVideoID ()
+{
+	//Initialize variables
+	int movieID = 0;
+
+	//Loop until correct value has been given
+	while (true)
+	{
+		cout << "Movie ID: " << '\t';
+		cin >> movieID;
+
+		//Value must be a positive integer
+		if (cin.fail () || movieID < 0)
+		{
+			cin.clear ();
+			cin.ignore (numeric_limits<streamsize>::max (), '\n');
+			cerr << "Invalid movie ID" << '\n';
+			continue;
+		}
+
+		return movieID;
+	}
+}
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Gets the customerID with error checking 
+	Precondition: N/A
+	Postcondtion: The customerID being returned must be an integer
 */
 int MovieRental::getCustomerID ()
 {
@@ -264,6 +278,12 @@ int MovieRental::getCustomerID ()
 	}
 }
 
+/**
+	Author: Adrianne Magraica
+	Description:  Pauses the program and waits for a key input
+	Precondition: N/A
+	Postcondtion: The cout must be displayed and the program must wait for a key input
+*/
 void MovieRental::promptUser ()
 {
 	cout << "Press enter to continue ";
@@ -271,24 +291,34 @@ void MovieRental::promptUser ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+    Author: Adrianne Magracia
+	Description:  Calls the filehandling function of the customerList
+	Precondition: N/A
+	Postcondtion: Must be able to call the filehandling function of the customerList
 */
 void MovieRental::writeCustomerToFile ()
 {
 	customerList.writeCustomerToFile ();
 }
 
+/**
+	Author: Adrianne Magracia
+	Description:  Calls the filehandling function of the customerList
+	Precondition: N/A
+	Postcondtion: Must be able to call the filehandling function of the customerList
+*/
 void MovieRental::readCustomerToFile ()
 {
 	customerList.readCustomerToFile ();
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author: Adrianne Magracia
+	Description:  Writes the unordered map contents to the file
+	Precondition: Unordered map to be processed has a integer as key and the value
+				  is a stack
+	Postcondtion: The unordered map contents is written in the following format
+				   customerID movieID,movieID,...,movieID
 */
 void MovieRental::writeCustomerRentToFile ()
 {
@@ -320,6 +350,17 @@ void MovieRental::writeCustomerRentToFile ()
 	customerRentOutStream.close ();
 }
 
+
+/**
+	Author: Adrianne Magracia
+	Description:  Reads the file and inserts it into the unordered map with
+				  the customerID as the key value and the movieID as the 
+				  stack value.
+	Precondition: filePath is an existing file and the unordered is existing
+				  and initialized
+	Postcondtion: The file contents is inserted into the unordered map following the
+				  customerID key and the movieID value format.
+*/
 void MovieRental::readCustomerRentFromFile () 
 {
 	//Initialize variable
@@ -335,52 +376,72 @@ void MovieRental::readCustomerRentFromFile ()
 		cout << filePath << ": Opening failed. \n";
 
 	//Put file values into Map
-	
 	while (getline (customerRentInStream, fileLine))
 	{
+		//Initialize variables
 		int stringCounter = 0;
 		string mapKeyString = "";
 		stack<int> tempStack;
 
+		//Check if the fileLine has content
 		if (fileLine.size() > 0)
 		{
+			//Gets the customerID in the file until it reads a whitespace
+			//The whitespace was included to separate the customerID and movieID
 			while (fileLine [stringCounter] != ' ')
 			{
 				mapKeyString += fileLine [stringCounter];
 				++stringCounter;
 			}
 
+			//Converts the string key to and integer key
 			mapKey = stoi (mapKeyString);
 
+			//Reads the remaining line going on until the end of line
 			while (stringCounter < fileLine.size ())
 			{
+				//Initialize variable
 				string stackValueString = "";
 				++stringCounter;
+
+				//Gets the movieID in the file until it reads a comma
+				//The comma separates each movieID
 				while (fileLine[stringCounter] != ',')
 				{
 					stackValueString += fileLine [stringCounter];
 					++stringCounter;
 
+					//Terminating statement if the end of the line is reached
 					if (fileLine.size () == stringCounter)
 						break;
 				}
 
+				//Converts the string value of stack into integer then pushes it
+				//Into the stack.
 				tempStack.push (stoi(stackValueString));
 				
 			}
-
+			//Insert the key value pair into the map
 			rentedVideos.insert ({ mapKey, tempStack});
 		}
 	}
-
-	//cout << "File read successful!" << '\n';
 }
 
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void MovieRental::writeMovieListToFile()
 {
 	movieList.writeMovieListToFile();
 }
 
+/**
+	Description:
+	Precondition:
+	Postcondtion:
+*/
 void MovieRental::readMovieListFromFile()
 {
 	movieList.readMovieListFromFile();
