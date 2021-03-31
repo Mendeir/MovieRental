@@ -114,7 +114,11 @@ void UserInterface::processCommandMainMenu (int command)
 	{
 		case 1:
 		{
-			
+			cout << "=======================================" << '\n';
+			cout << "               NEW VIDEO               " << '\n';
+			cout << "=======================================" << '\n';
+			cout << '\n';
+
 			string title;
 			string genre;
 			string production;
@@ -122,7 +126,6 @@ void UserInterface::processCommandMainMenu (int command)
 			string userFile;
 			MovieList movieItem;
 
-			cout << "New Video" << '\n';
 			cout << "Video ID: " << movieItem.movieCounter + 1 << '\n';
 
 			cin.ignore(numeric_limits<streamsize>::max (), '\n');
@@ -147,32 +150,50 @@ void UserInterface::processCommandMainMenu (int command)
 			
 
 		case 2:
-			cout << "Rent a Video" << '\n';
+			cout << "========================================" << '\n';
+			cout << "              RENT A VIDEO              " << '\n';
+			cout << "========================================" << '\n';
+			cout << '\n';
+
 			movieRental.rentAVideo();
 			break;
 
 		case 3:
-			cout << "Return a Video" << '\n';
+			cout << "========================================" << '\n';
+			cout << "             RETURN A VIDEO             " << '\n';
+			cout << "========================================" << '\n';
+			cout << '\n';
+
 			movieRental.returnVideo();
 			cin.get ();
 			break;
 
 		case 4:
-			cout << "Show Video Details" << '\n';
+			cout << "========================================" << '\n';
+			cout << "           SHOW VIDEO DETAILS           " << '\n';
+			cout << "========================================" << '\n';
+			cout << '\n';
+
 			movieRental.showVideoDetails();
 			cin.get();
 			break;
 
 		case 5:
-			cout << "Display All Videos" << '\n';
+			cout << "========================================" << '\n';
+			cout << "           DISPLAY ALL VIDEOS           " << '\n';
+			cout << "========================================" << '\n';
+			cout << '\n';
+
 			movieRental.displayAllVideos();
 			cin.get();
 			break;
 
 		case 6:
-		
-			
-			cout << "Check Video Availability" << '\n';
+			cout << "========================================" << '\n';
+			cout << "        CHECK VIDEO AVAILABILITY        " << '\n';
+			cout << "========================================" << '\n';
+			cout << '\n';
+
 			movieRental.checkVideoAvailability();
 			cin.get();
 
@@ -180,7 +201,6 @@ void UserInterface::processCommandMainMenu (int command)
 		
 		case 7: 
 			customerMaintenance();
-
 			break;
 		
 		case 8:
@@ -209,7 +229,11 @@ void UserInterface::processCustomerMaintenance (int command)
 	{
 		case 1:
 		{
-			cout << "Add New Customer" << '\n';
+			cout << "========================================" << '\n';
+			cout << "            ADD NEW CUSTOMER            " << '\n';
+			cout << "========================================" << '\n';
+			cout << '\n';
+
 			Customer newCustomer;
 			string userName;
 			string userAddress;
@@ -229,13 +253,21 @@ void UserInterface::processCustomerMaintenance (int command)
 		}
 
 		case 2:
-			cout << "Show Customer Details" << '\n';
+			cout << "=========================================" << '\n';
+			cout << "          SHOW CUSTOMER DETAILS          " << '\n';
+			cout << "=========================================" << '\n';
+			cout << '\n';
+
 			movieRental.showCustomerDetails ();
 			cin.get ();
 			break;
 
 		case 3:
-			cout << "List of Videos Rented by a Customer" << '\n';
+			cout << "=========================================" << '\n';
+			cout << "    LIST OF VIDEOS RENTED BY CUSTOMER    " << '\n';
+			cout << "=========================================" << '\n';
+			cout << '\n';
+
 			movieRental.listVideosRentedByCustomer ();
 			cin.get ();
 			break;
