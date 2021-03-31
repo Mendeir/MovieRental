@@ -17,7 +17,7 @@ class MovieList
 			string movieGenre;
 			string movieProduction;
 			int numberOfCopies = 0;
-			string movieImageFileName;
+			string movieImageFilePath;
 			struct videoNode* next = nullptr;
 		} *videoNodePtr;
 

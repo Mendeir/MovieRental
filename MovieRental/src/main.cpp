@@ -1,10 +1,10 @@
 #include "UserInterface.h"
 
-int main () 
+int main ()
 {
 	UserInterface UI;
 	UI.start ();
-	
+
 
 	return 0;
 }

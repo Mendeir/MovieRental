@@ -1,4 +1,5 @@
 #include "MovieList.h"
+#include <opencv2/opencv.hpp>
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -8,6 +9,7 @@
 
 
 using namespace std;
+using namespace cv;
 
 //Constructors and Destructors
 MovieList::MovieList ()
@@ -48,13 +50,16 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 	videoNodePtr tempNode;
 
 	++movieCounter;
+
+	//Add the additional directory for the fileName
+	string filePath = "C:/images/" + fileName;
 	
 	newVideo->videoID = movieCounter;
 	newVideo->movieTitle = title;
 	newVideo->movieGenre = genre;
 	newVideo->movieProduction = production;
 	newVideo->numberOfCopies = copies;
-	newVideo->movieImageFileName = fileName;
+	newVideo->movieImageFilePath = filePath;
 	newVideo->next = nullptr;
 
 	// if movie list is created already
@@ -214,6 +219,12 @@ void MovieList::showVideoDetails (int givenVidID)
 				cout << "Genre :\t\t\t" << currentNode->movieGenre << "\n";
 				cout << "Production :\t\t" << currentNode->movieProduction << "\n";
 				cout << "Number of Copies :\t" << currentNode->numberOfCopies << "\n\n";
+				
+				//Displaying image
+				Mat movieIMG = imread (currentNode->movieImageFilePath);
+				imshow (currentNode->movieTitle, movieIMG);
+				waitKey (0);
+				
 
 			}
 			
@@ -375,7 +386,7 @@ void MovieList::writeMovieListToFile()
 			<< currentNode->movieGenre << ","
 			<< currentNode->movieProduction << ","
 			<< currentNode->numberOfCopies << ","
-			<< currentNode->movieImageFileName << "\n";
+			<< currentNode->movieImageFilePath << "\n";
 						
 		currentNode = currentNode->next;
 	}
