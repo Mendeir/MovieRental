@@ -222,6 +222,14 @@ void MovieList::showVideoDetails (int givenVidID)
 				
 				//Displaying image
 				Mat movieIMG = imread (currentNode->movieImageFilePath);
+
+				//Check if image is empty or not
+				if (movieIMG.empty ()) 
+				{
+					cout << currentNode->movieImageFilePath << " not found." << '\n';
+					return;
+				}
+
 				imshow (currentNode->movieTitle, movieIMG);
 				waitKey (0);
 				
