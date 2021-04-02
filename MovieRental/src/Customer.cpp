@@ -16,7 +16,7 @@ Customer::Customer (int givenID, string givenName, string givenAddress)
 		customerId = customerIdCounter;
 	else
 		customerId = givenID;
-
+	// Initialization of variables
 	customerName = givenName;
 	customerAddress = givenAddress;
 }
@@ -33,7 +33,7 @@ int Customer::customerIdCounter = 0;
 //*		   METHODS          *
 //***************************
 
-//Setters and Getters
+// Setters and Getters for customer details
 int Customer::getCustomerId()
 {
 	return customerId;
