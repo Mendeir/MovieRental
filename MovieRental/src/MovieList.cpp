@@ -59,8 +59,16 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 	// Increment the ID number everytime the method is being called.
 	++movieCounter;
 
-	//Add the additional directory for the fileName.
-	string filePath = "C:/images/" + fileName;
+	string directory = "C:/images/";
+	string filePath;
+
+	//Add the additional directory for the fileName if it isn't added yet
+	if (fileName.find (directory) != string::npos) {
+		filePath = fileName;
+	}
+	else {
+		filePath = "directory" + fileName;
+	}
 	
 	// Initialization of the variables of the nodes.
 	newVideo->videoID = movieCounter;

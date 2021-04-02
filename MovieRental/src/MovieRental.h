@@ -29,6 +29,7 @@ class MovieRental
 		void showCustomerDetails ();
 		void listVideosRentedByCustomer ();
 		int getCustomerID ();
+		int getVideoID ();
 
 		void promptUser ();
 
@@ -39,7 +40,6 @@ class MovieRental
 		void readCustomerToFile ();
 		void writeCustomerRentToFile ();
 		void readCustomerRentFromFile ();
-		void testReadingFile ();
 };
 
 
