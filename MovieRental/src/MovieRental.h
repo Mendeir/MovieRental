@@ -25,7 +25,7 @@ class MovieRental
 		void showVideoDetails ();
 		void displayAllVideos ();
 		void checkVideoAvailability ();
-		void addNewCustomer (Customer givenCustomer);
+		void addNewCustomer ();
 		void showCustomerDetails ();
 		void listVideosRentedByCustomer ();
 		int getCustomerID ();
