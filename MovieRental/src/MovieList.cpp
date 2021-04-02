@@ -39,9 +39,10 @@ MovieList::~MovieList ()
 //***************************
 
 /**
-	Description:
+	Author: Dave Bornilla
+	Description:  
 	Precondition:
-	Postcondtion:
+	Postcondtion: 
 */
 void MovieList::newVideo (string title, string genre, string production, int copies, string fileName)
 {	
@@ -210,7 +211,7 @@ void MovieList::showVideoDetails (int givenVidID)
 			{
 				cout << "NO MOVIE DETAILS FOUND\n\n";
 				return;
-			 }
+			}
 		
 			if (givenVidID == currentNode->videoID)
 			{
@@ -259,12 +260,12 @@ void MovieList::displayVideos ()
 	// displaying all videos
 	else
 	{
-		cout << "Video ID" << "\t" << setw(10) << "Movie Title" << "\t\t" << setw(10) << "Genre" << "\t\t" << setw(10) << "Production \n";
+		cout << "Video ID" << "\t" << setw(19) << "Movie Title" << setw(26) << "Genre" << "\t\t" << setw(20) << "Production \n";
 		currentNode = headNode;
 		while (currentNode != nullptr)
 		{
-			cout << currentNode->videoID << "\t\t" << setw(10) << currentNode->movieTitle;
-			cout << "\t" << setw(10) << currentNode->movieGenre << "\t\t" << setw(10) << currentNode->movieProduction << "\n";
+			cout << currentNode->videoID << "\t\t\t" << setw(25) << left << currentNode->movieTitle;
+			cout << "\t" << setw(20) << left << currentNode->movieGenre << "\t" << setw(20) << left << currentNode->movieProduction << "\n";
 			currentNode = currentNode->next;
 		}
 		cin.get();

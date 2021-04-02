@@ -15,9 +15,35 @@ using namespace std;
 	Precondition:
 	Postcondtion:
 */
-void MovieRental::newVideo (string title, string genre, string production, int copies, string fileName)
+void MovieRental::newVideo ()
 {
-	movieList.newVideo(title, genre, production, copies, fileName);
+	string title;
+	string genre;
+	string production;
+	int numCopies;
+	string userFile;
+	MovieList movieItem;
+
+	cout << "Video ID: " << movieItem.movieCounter + 1 << '\n';
+
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cout << "Movie Title: ";
+	getline(cin, title);
+
+	cout << "Genre: ";
+	getline(cin, genre);
+
+	cout << "Production: ";
+	getline(cin, production);
+
+	cout << "Numbers of copies: ";
+	cin >> numCopies;
+
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cout << "File Name: ";
+	getline(cin, userFile);
+
+	movieList.newVideo(title, genre, production, numCopies, userFile);
 	cout << '\n';
 	promptUser ();
 }

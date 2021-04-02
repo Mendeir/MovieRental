@@ -151,32 +151,7 @@ void UserInterface::processCommandMainMenu (int command)
 			cout << "=======================================" << '\n';
 			cout << '\n';
 
-			string title;
-			string genre;
-			string production;
-			int numCopies;
-			string userFile;
-			MovieList movieItem;
-
-			cout << "Video ID: " << movieItem.movieCounter + 1 << '\n';
-
-			cin.ignore(numeric_limits<streamsize>::max (), '\n');
-			cout << "Movie Title: ";
-			getline(cin, title);
-
-			cout << "Genre: ";
-			getline (cin, genre);
-			
-			cout << "Production: ";
-			getline(cin, production);
-			
-			cout << "Numbers of copies: ";
-			cin >> numCopies;
-
-			cin.ignore (numeric_limits<streamsize>::max (), '\n');
-			cout << "File Name: ";
-			getline(cin, userFile);
-			movieRental.newVideo(title, genre, production, numCopies, userFile);
+			movieRental.newVideo();
 			break;
 		}
 			
