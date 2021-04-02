@@ -40,7 +40,6 @@ class MovieRental
 		void readCustomerToFile ();
 		void writeCustomerRentToFile ();
 		void readCustomerRentFromFile ();
-		void testReadingFile ();
 };
 
 
