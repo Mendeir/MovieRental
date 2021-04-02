@@ -1,3 +1,25 @@
-1,dave,action,marvels,10,C:/images/download.png
-2,avengers,action,marvels',10,C:/images/adef.txt
-3,Visual Studio,Action,Visual,10,C:/images/download.png
+1,IT,Horror,New Line Cinema,10,C:/images/IT.jpg
+2,Insidious,Horror,Haunted Movies,64,C:/images/Insidious.jpg
+3,Conjuring,Horror,New Line Cinema,25,C:/images/Conjuring.jpg
+4,Alive,Horror,ZIP Cinema Perspective Pictures,10,C:/images/Alive.jpg
+5,The Nun,Horror,New Line Cinema,0,C:/images/TheNun.jpg
+6,Titanic,Romance,Paramount Pictures,2,C:/images/Titanic.jpg
+7,Midnight Sun,Romance,Principal Photography,3,C:/images/MidnightSun.jpg
+8,365 Days,Romance,Future Space Next Film TVN,0,C:/images/365Days.jpg
+9,Yesterday,Romance,Perfect World Pictures,4,C:/images/Yesterday.jpg
+10,The Kissing Booth,Romance,Komixx Entertainment,10,C:/images/TheKissingBooth.jpg
+11,Avengers,Science Friction,Marvels Studio,8,C:/images/avengers.jpg
+12,Avatar,Science Friction,20th Century Fox,10,C:/images/avatar.jpg
+13,Rim of the World,Sci-Fi,Vision Circle of Confusionn,30,C:/images/rimoftheworld.jpg
+14,The Maze Runner,Sci-Fi,20th Century Studios,15,C:/images/themazerunners.jpg
+15,Ready Player One,Sci-Fi,Amblin Entertainment,60,C:/images/readyplayerone.jpg
+16,Extraction,Action,AGBO Production,35,C:/images/extraction.jpg
+17,Hitman Agent 47,Action,20th Century Fox,0,C:/images/hitman.jpg
+18,Assasins Creed The Movie,Action,20th Century Fox,78,C:/images/assasinscreed.jpg
+19,Ninja Assasin,Action,Dark Castle Entertainment,22,C:/images/ninja.jpg
+20,Taken I,Action,Europa Corporation,8,C:/images/taken.jpg
+21,You Dont Mess with the Zohan,Comedy,Happy Madison Production,12,C:/images/zohan.jpg
+22,Johnny English,Comedy,Studio Canal,0,C:/images/englishcomedy.jpg
+23,PK,Comedy,Vinod Chopra Films,77,C:/images/pk.jpeg
+24,3 Idiots,Comedy,Vinod Chopra Films,4,C:/images/threeidiots.jpg
+25,Around the World in 80 Days,Comedy,Walt Disney Pictures,10,C:/images/aroundtheworld.jpeg

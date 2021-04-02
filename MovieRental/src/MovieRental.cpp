@@ -36,8 +36,23 @@ void MovieRental::newVideo ()
 	cout << "Production: ";
 	getline(cin, production);
 
-	cout << "Numbers of copies: ";
-	cin >> numCopies;
+	//Error handling for the number of copies
+	while (true) 
+	{
+		cout << "Numbers of copies: ";
+		cin >> numCopies;
+
+		//Value must be a positive integer
+		if (cin.fail () || numCopies < 0)
+		{
+			cin.clear ();
+			cin.ignore (numeric_limits<streamsize>::max (), '\n');
+			cerr << "Invalid number of copies" << '\n';
+			continue;
+		}
+
+		break;
+	}
 
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	cout << "File Name: ";
@@ -272,7 +287,7 @@ int MovieRental::getVideoID ()
 	//Loop until correct value has been given
 	while (true)
 	{
-		cout << "Movie ID: " << '\t';
+		cout << "Movie ID: " << "\t\t";
 		cin >> movieID;
 
 		//Value must be a positive integer

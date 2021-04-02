@@ -1,4 +1,10 @@
-1,MG,Mars 
-2,Testing Lang,Hello World
-3,Hello,Newton
-4,MG,FEU Tech Manila
+1,Juan Dela Crus,Tondo Manila City
+2,Patrick Baruelos,Ortigas Pasig City
+3,Edsel Cargais,Waterfun Taguig City
+4,Leonard Ales,Alabang Muntinlupa City
+5,Paul Uson,Ayala Makati City
+6,Derreck Nolasco,Tarlac City
+7,Richard Abe,32A Narra St Pasay City
+8,Merrick Sarmiento,32A Makati City
+9,John Delos Santos,Balintawak Quezon City
+10,Albert Santos,5th Avenue Caloocan City

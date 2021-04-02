@@ -19,12 +19,6 @@ class UserInterface
 		int getUserCommand();
 
 		//Main Menu Methods
-		void newVideo();
-		void rentVideo();
-		void returnVideo();
-		void showVideoDetails();
-		void displayAllVideos();
-		void checkVideoAvailability(int givenVideoID);
 		void customerMaintenance();
 		void customerMaintenanceSubMenu();
 

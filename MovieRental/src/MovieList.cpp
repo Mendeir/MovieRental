@@ -197,12 +197,9 @@ void MovieList::showVideoDetails (int givenVidID)
 		
 		// CHECK IF THE LIST IS EMPTY, IF NOT SHOW THE DETAILS
 		if (headNode == nullptr)
-		{
 			cout << "No movie details to be displayed yet...\n";
-			cin.get();
-		}
-		//SHOWING ALL THE DETAILS OF THE MOVIE
 
+		//SHOWING ALL THE DETAILS OF THE MOVIE
 		else
 		{
 		
@@ -217,7 +214,7 @@ void MovieList::showVideoDetails (int givenVidID)
 			}
 			if (currentNode  == nullptr)
 			{
-				cout << "NO MOVIE DETAILS FOUND\n\n";
+				cout << "No movie details found.\n\n";
 				return;
 			}
 		
@@ -244,8 +241,6 @@ void MovieList::showVideoDetails (int givenVidID)
 				
 
 			}
-			
-			cin.get();
 		}
 	}
 
@@ -307,9 +302,10 @@ void MovieList::checkVideoAvailability (int givenVideoID)
 			tempNode = currentNode;
 			currentNode = currentNode->next;
 		}
+
 		if (currentNode == nullptr)
 		{
-			cout << "No movies has been added yet. \n";
+			cout << "Movie ID does not exist.\n";
 			return;
 		}
 
