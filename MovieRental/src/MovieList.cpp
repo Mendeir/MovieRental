@@ -52,8 +52,16 @@ void MovieList::newVideo (string title, string genre, string production, int cop
 
 	++movieCounter;
 
-	//Add the additional directory for the fileName
-	string filePath = "C:/images/" + fileName;
+	string directory = "C:/images/";
+	string filePath;
+
+	//Add the additional directory for the fileName if it isn't added yet
+	if (fileName.find (directory) != string::npos) {
+		filePath = fileName;
+	}
+	else {
+		filePath = "directory" + fileName;
+	}
 	
 	newVideo->videoID = movieCounter;
 	newVideo->movieTitle = title;
