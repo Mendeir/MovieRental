@@ -185,9 +185,23 @@ void MovieRental::checkVideoAvailability()
 	Precondition:
 	Postcondtion:
 */
-void MovieRental::addNewCustomer (Customer givenCustomer)
+void MovieRental::addNewCustomer ()
 {
-	customerList.addCustomer(givenCustomer);
+	Customer newCustomer;
+	string userName;
+	string userAddress;
+
+	cout << "Customer ID: " << newCustomer.getCustomerId() << '\n';
+
+	cin.ignore(32767, '\n');
+	cout << "Name: ";
+	getline(cin, userName);
+	newCustomer.setCustomerName(userName);
+	cout << "Address: ";
+	getline(cin, userAddress);
+	newCustomer.setCustomerAddress(userAddress);
+	cin.get();
+	customerList.addCustomer(newCustomer);
 }
 
 /**

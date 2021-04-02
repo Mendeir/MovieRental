@@ -243,21 +243,7 @@ void UserInterface::processCustomerMaintenance (int command)
 			cout << "========================================" << '\n';
 			cout << '\n';
 
-			Customer newCustomer;
-			string userName;
-			string userAddress;
-
-			cout << "Customer ID: " << newCustomer.getCustomerId() << '\n';
-
-			cin.ignore(32767, '\n');
-			cout << "Name: ";
-			getline(cin, userName);
-			newCustomer.setCustomerName(userName);
-			cout << "Address: ";
-			getline(cin, userAddress);
-			newCustomer.setCustomerAddress(userAddress);
-			movieRental.addNewCustomer(newCustomer);
-			cin.get ();
+			movieRental.addNewCustomer();
 			break;
 		}
 
