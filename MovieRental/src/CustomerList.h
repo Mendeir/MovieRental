@@ -8,7 +8,7 @@
 class CustomerList
 {
 	private:
-		//Variables
+		//Variables for customerList to be stored from the user
 		vector<Customer> customerCollection;
 
 	public:
