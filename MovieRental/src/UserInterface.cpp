@@ -163,6 +163,7 @@ void UserInterface::processCommandMainMenu (int command)
 			cout << '\n';
 
 			movieRental.rentAVideo();
+			cin.get ();
 			break;
 
 		case 3:
