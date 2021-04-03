@@ -145,7 +145,7 @@ bool MovieList::rentAVideo (int givenID)
 		currentNode = currentNode->next;
 
 	//If found reduce the number of copies and return
-	if (currentNode != nullptr)
+	if (currentNode != nullptr && currentNode->numberOfCopies > 0)
 	{
 		--currentNode->numberOfCopies;
 		cout << "Video ID " << currentNode->videoID << " has been rented successfully!" << '\n';
@@ -153,7 +153,7 @@ bool MovieList::rentAVideo (int givenID)
 	}
 	
 	//If node not found
-	cout << "Video ID " << givenID  << " is not found on the list" << '\n';
+	cout << "Video ID " << givenID  << " is not found on the list/Not available" << '\n';
 	return false;
 }
 
