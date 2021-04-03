@@ -196,6 +196,7 @@ void MovieRental::displayAllVideos()
 {
 	// Calling the displayVideos in the movilist class
 	movieList.displayVideos();
+	promptUser ();
 }
 
 /**
@@ -246,9 +247,9 @@ void MovieRental::addNewCustomer ()
 
 	// Setting the customer address by the user's input
 	newCustomer.setCustomerAddress(userAddress);
-	cin.get();
 	// Calling the addCustomer method in the customerList class.
 	customerList.addCustomer(newCustomer);
+	promptUser ();
 }
 
 /**

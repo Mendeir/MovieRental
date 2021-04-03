@@ -271,7 +271,6 @@ void MovieList::displayVideos ()
 	if(headNode == nullptr)
 	{
 		cout << "No movies has been added yet. \n";
-		cin.get();
 	}
 	// Displaying all videos.
 	else
@@ -287,7 +286,6 @@ void MovieList::displayVideos ()
 			cout << "\t" << setw(20) << left << currentNode->movieGenre << "\t" << setw(20) << left << currentNode->movieProduction << "\n";
 			currentNode = currentNode->next;
 		}
-		cin.get();
 	}
 }
 

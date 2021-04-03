@@ -17,6 +17,7 @@ using namespace std;
 void CustomerList::addCustomer (Customer givenCustomer)
 {
 	customerCollection.push_back(givenCustomer);
+	cout << "\nID number " << givenCustomer.getCustomerId () << " is successfully added!\n";
 }
 
 /**
