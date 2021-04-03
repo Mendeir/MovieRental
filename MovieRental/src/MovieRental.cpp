@@ -144,9 +144,12 @@ void MovieRental::returnVideo ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+*   Author     : Joshua Matthew C. Padilla
+	Description: Show the details of every movie given by the user.
+				All the details such as: ID,Movie Name,Genre,Production and Number of copies of the followingm movie
+	Precondition: GivenVidID are the movie given in the list. The customer must Rented movie using the GivenVidId 
+				  and it will generate the Movie equal to the Video ID.
+	Postcondtion: Given ID that was inputted in the program will show on the screen.
 */
 void MovieRental::showVideoDetails ()
 {
@@ -167,9 +170,11 @@ void MovieRental::displayAllVideos()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+*   Author : Joshua Matthew Padilla
+	Description: To check if the video that the custoemr want to rent  is available or not 
+				 Check Video Availability also used to know how many copies of particular movies available
+	Precondition: GivenVideoID the customer must atleast find a movie that want to check if available.
+	Postcondtion: The availability of particular movie will be outputted on the screen.
 */
 void MovieRental::checkVideoAvailability()
 {
@@ -191,9 +196,11 @@ void MovieRental::addNewCustomer (Customer givenCustomer)
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author : Padilla, Joshua Matthew C.
+	Description: Show personal details of the following customer such as Name and Address
+	Precondition: Customer must be a legitimate customer and already added on the ADD Customer Function 
+				 in order to get the details of the following customer using the GivenCustomerID
+	Postcondtion: The details and the videos rented by the customer must be displayed on the screen
 */
 void MovieRental::showCustomerDetails ()
 {
