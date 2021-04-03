@@ -194,9 +194,11 @@ void MovieList::returnAVideo (int givenID)
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+*   Author     : Padilla , Joshua Matthew C.
+	Description: Traverse the list to know if the list is empty or not, traverse the following node
+				 to find the Given Video ID by the user to be used in the program
+	Precondition: GivenVidID is an integer and the list must atleast have a data
+	Postcondtion: Show the Video Details on the screen.
 */
 void MovieList::showVideoDetails (int givenVidID)
 {
@@ -290,9 +292,10 @@ void MovieList::displayVideos ()
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+*   Author     : Padilla , Joshua Matthew C.
+	Description: Check if the following video id inputted by the user is available or not.
+	Precondition: GivenVideoID must atleast satisfy any value in the Video ID 
+	Postcondtion: Display the Availability of the following Video 
 */
 void MovieList::checkVideoAvailability (int givenVideoID)
 {

@@ -21,9 +21,11 @@ void CustomerList::addCustomer (Customer givenCustomer)
 }
 
 /**
-	Description:
-	Precondition:
-	Postcondtion:
+	Author : Padilla, Joshua Matthew C.
+	Description: Show the following details of the customer such as name, address and the video rented.
+	Precondition: The givenID atleast must satisfy any value in the video ID to display the details of 
+					the following customer
+	Postcondtion:  Display the whole details of customer on the screen.
 */
 bool CustomerList::showCustomerDetails (int givenId)
 {
